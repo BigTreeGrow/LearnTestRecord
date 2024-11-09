@@ -1,0 +1,16 @@
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\MotionTestSystem.exe.config
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\MotionTestSystem.exe
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\MotionTestSystem.pdb
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\thinger.AutomaticStoreMotionDAL.dll
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\thinger.AutomaticStoreMotionModels.dll
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\thinger.AutomaticStoreMotionDAL.pdb
+H:\MotionTestSystem\MotionTestSystem\bin\Debug\thinger.AutomaticStoreMotionModels.pdb
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.csproj.AssemblyReference.cache
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.exe.config
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.FormLogin.resources
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.Properties.Resources.resources
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.csproj.GenerateResource.cache
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.csproj.CoreCompileInputs.cache
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.csproj.CopyComplete
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.exe
+H:\MotionTestSystem\MotionTestSystem\obj\Debug\MotionTestSystem.pdb

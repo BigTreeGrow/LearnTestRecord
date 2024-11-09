@@ -1,0 +1,6 @@
+H:\MotionTestSystem\thinger.AutomaticStoreMotionModels\bin\Debug\thinger.AutomaticStoreMotionModels.dll
+H:\MotionTestSystem\thinger.AutomaticStoreMotionModels\bin\Debug\thinger.AutomaticStoreMotionModels.pdb
+H:\MotionTestSystem\thinger.AutomaticStoreMotionModels\obj\Debug\thinger.AutomaticStoreMotionModels.csproj.CoreCompileInputs.cache
+H:\MotionTestSystem\thinger.AutomaticStoreMotionModels\obj\Debug\thinger.AutomaticStoreMotionModels.dll
+H:\MotionTestSystem\thinger.AutomaticStoreMotionModels\obj\Debug\thinger.AutomaticStoreMotionModels.pdb
+H:\MotionTestSystem\thinger.AutomaticStoreMotionModels\obj\Debug\thinger.AutomaticStoreMotionModels.csproj.AssemblyReference.cache
