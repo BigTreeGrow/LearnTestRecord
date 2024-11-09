@@ -1,9 +1,0 @@
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\bin\Debug\thinger.AutomaticStoreMotionDAL.dll
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\bin\Debug\thinger.AutomaticStoreMotionDAL.pdb
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\bin\Debug\thinger.AutomaticStoreMotionModels.dll
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\bin\Debug\thinger.AutomaticStoreMotionModels.pdb
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\obj\Debug\thinger.AutomaticStoreMotionDAL.csproj.AssemblyReference.cache
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\obj\Debug\thinger.AutomaticStoreMotionDAL.csproj.CoreCompileInputs.cache
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\obj\Debug\thinger.AutomaticStoreMotionDAL.csproj.CopyComplete
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\obj\Debug\thinger.AutomaticStoreMotionDAL.dll
-H:\MotionTestSystem\thinger.AutomaticStoreMotionDAL\obj\Debug\thinger.AutomaticStoreMotionDAL.pdb
