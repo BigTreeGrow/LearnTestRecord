@@ -32,15 +32,15 @@ namespace MotionTestSystem
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelTop = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Mainpanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelUser = new System.Windows.Forms.Label();
-            this.labelSysState = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.labelSysState = new System.Windows.Forms.Label();
             this.labelDataTime = new System.Windows.Forms.Label();
-            this.Mainpanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,15 +50,16 @@ namespace MotionTestSystem
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -71,7 +72,7 @@ namespace MotionTestSystem
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1200, 768);
-            this.splitContainer1.SplitterDistance = 74;
+            this.splitContainer1.SplitterDistance = 80;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -83,12 +84,14 @@ namespace MotionTestSystem
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1200, 74);
+            this.panelTop.Size = new System.Drawing.Size(1200, 80);
             this.panelTop.TabIndex = 0;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -100,24 +103,10 @@ namespace MotionTestSystem
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
-            this.splitContainer2.Size = new System.Drawing.Size(1200, 693);
-            this.splitContainer2.SplitterDistance = 626;
+            this.splitContainer2.Size = new System.Drawing.Size(1200, 687);
+            this.splitContainer2.SplitterDistance = 621;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.panel1.Controls.Add(this.labelDataTime);
-            this.panel1.Controls.Add(this.labelSysState);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.labelUser);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 66);
-            this.panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -140,6 +129,16 @@ namespace MotionTestSystem
             this.label1.TabIndex = 1;
             this.label1.Text = "运动控制测试系统";
             // 
+            // Mainpanel
+            // 
+            this.Mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Mainpanel.Location = new System.Drawing.Point(0, 0);
+            this.Mainpanel.Name = "Mainpanel";
+            this.Mainpanel.Size = new System.Drawing.Size(1200, 621);
+            this.Mainpanel.TabIndex = 0;
+            this.Mainpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
+            this.Mainpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::MotionTestSystem.Properties.Resources.user;
@@ -160,16 +159,6 @@ namespace MotionTestSystem
             this.labelUser.TabIndex = 1;
             this.labelUser.Text = "管理员";
             // 
-            // labelSysState
-            // 
-            this.labelSysState.AutoSize = true;
-            this.labelSysState.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelSysState.Location = new System.Drawing.Point(281, 32);
-            this.labelSysState.Name = "labelSysState";
-            this.labelSysState.Size = new System.Drawing.Size(88, 25);
-            this.labelSysState.TabIndex = 3;
-            this.labelSysState.Text = "系统状态";
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::MotionTestSystem.Properties.Resources.connected;
@@ -179,6 +168,16 @@ namespace MotionTestSystem
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            // 
+            // labelSysState
+            // 
+            this.labelSysState.AutoSize = true;
+            this.labelSysState.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelSysState.Location = new System.Drawing.Point(281, 32);
+            this.labelSysState.Name = "labelSysState";
+            this.labelSysState.Size = new System.Drawing.Size(88, 25);
+            this.labelSysState.TabIndex = 3;
+            this.labelSysState.Text = "系统状态";
             // 
             // labelDataTime
             // 
@@ -190,15 +189,19 @@ namespace MotionTestSystem
             this.labelDataTime.TabIndex = 4;
             this.labelDataTime.Text = "2024-11-11-10:00";
             // 
-            // Mainpanel
+            // panel1
             // 
-            this.Mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Mainpanel.Location = new System.Drawing.Point(0, 0);
-            this.Mainpanel.Name = "Mainpanel";
-            this.Mainpanel.Size = new System.Drawing.Size(1200, 626);
-            this.Mainpanel.TabIndex = 0;
-            this.Mainpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
-            this.Mainpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.panel1.Controls.Add(this.labelDataTime);
+            this.panel1.Controls.Add(this.labelSysState);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.labelUser);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1200, 65);
+            this.panel1.TabIndex = 1;
             // 
             // FrmMain
             // 
@@ -224,11 +227,11 @@ namespace MotionTestSystem
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -238,14 +241,14 @@ namespace MotionTestSystem
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel Mainpanel;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelDataTime;
         private System.Windows.Forms.Label labelSysState;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
