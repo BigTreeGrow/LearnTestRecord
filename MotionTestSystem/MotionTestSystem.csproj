@@ -86,6 +86,9 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -122,6 +125,69 @@
       <Project>{c792fe29-41f8-4dec-8a61-fbe75af96539}</Project>
       <Name>thinger.AutomaticStoreMotionModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\closehover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\connected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\hisData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\minhover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\param.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\RealData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\scanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\userMng.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
