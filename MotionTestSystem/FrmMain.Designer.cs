@@ -29,6 +29,7 @@ namespace MotionTestSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelTop = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -41,6 +42,8 @@ namespace MotionTestSystem
             this.labelSysState = new System.Windows.Forms.Label();
             this.labelDataTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.naviButton2 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton1 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +82,8 @@ namespace MotionTestSystem
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.panelTop.Controls.Add(this.naviButton2);
+            this.panelTop.Controls.Add(this.naviButton1);
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Controls.Add(this.pictureBox1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,6 +208,30 @@ namespace MotionTestSystem
             this.panel1.Size = new System.Drawing.Size(1200, 65);
             this.panel1.TabIndex = 1;
             // 
+            // naviButton2
+            // 
+            this.naviButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton2.Location = new System.Drawing.Point(1101, 1);
+            this.naviButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton2.Name = "naviButton2";
+            this.naviButton2.NaviImage = global::MotionTestSystem.Properties.Resources.param;
+            this.naviButton2.NaviName = "设置";
+            this.naviButton2.Size = new System.Drawing.Size(95, 72);
+            this.naviButton2.TabIndex = 3;
+            // 
+            // naviButton1
+            // 
+            this.naviButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton1.Location = new System.Drawing.Point(762, 1);
+            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton1.Name = "naviButton1";
+            this.naviButton1.NaviImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.NaviImage")));
+            this.naviButton1.NaviName = "实时监控";
+            this.naviButton1.Size = new System.Drawing.Size(95, 72);
+            this.naviButton1.TabIndex = 2;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -250,5 +279,7 @@ namespace MotionTestSystem
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton2;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton1;
     }
 }

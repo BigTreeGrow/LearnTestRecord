@@ -117,6 +117,10 @@
     <None Include="bin\Debug\image\三轴.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\thinger.AutomaticStoreMotionControlLib\thinger.AutomaticStoreMotionControlLib.csproj">
+      <Project>{95548EE1-5A7F-4FFA-B6AC-86DCB56AE8E2}</Project>
+      <Name>thinger.AutomaticStoreMotionControlLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\thinger.AutomaticStoreMotionDAL\thinger.AutomaticStoreMotionDAL.csproj">
       <Project>{f18af297-c172-4fe0-ae4e-2e052128faba}</Project>
       <Name>thinger.AutomaticStoreMotionDAL</Name>
