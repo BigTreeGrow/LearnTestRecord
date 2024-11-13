@@ -75,6 +75,92 @@ namespace thinger.AutomaticStoreMotionControlLib
         [Description("悬浮渐变系数")]
         public float ColorDepth { get; set; } = -0.2f;
 
+
+        private bool isactive = false;
+        [Browsable(true)]
+        [Category("自定义属性")]
+        [Description("激活")]
+        public bool Isactive
+        {
+            get { return isactive; }
+            set { isactive = value; 
+                //通知更新重绘
+                this.Invalidate();  }
+            
+        }
+
+        private int activegap = 0;
+
+        [Browsable(true)]
+        [Category("自定义属性")]
+        [Description("激活方框边距")]
+       
+        public int  Activegap
+        {
+            get { return activegap; }
+            set
+            {
+                activegap = value;
+                //通知更新重绘
+                this.Invalidate();
+            }
+
+        }
+
+        private int activeheight = 4;
+
+        [Browsable(true)]
+        [Category("自定义属性")]
+        [Description("激活方框高度")]
+       
+        public int Activeheight
+        {
+            get { return activeheight; }
+            set
+            {
+                activeheight = value;
+                //通知更新重绘
+                this.Invalidate();
+            }
+
+        }
+
+        private Color  activcolor = Color.FromArgb(236,240,243);
+
+        [Browsable(true)]
+        [Category("自定义属性")]
+        [Description("激活方框颜色")]
+
+        public Color Activcolor
+        {
+            get { return activcolor; }
+            set
+            {
+                activcolor = value;
+                //通知更新重绘
+                this.Invalidate();
+            }
+
+        }
+        //Invalidate 会调用 OnPaint方法
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            Graphics graphics = e.Graphics;
+            Rectangle rectangle = new Rectangle(activegap, this.Height - activeheight,
+                                                     this.Width - 2 * activegap, activeheight);
+            if (isactive)
+            {
+                graphics.FillRectangle(new SolidBrush(this.activcolor), rectangle);
+            }
+            else
+            {
+                graphics.FillRectangle(new SolidBrush(this.BackColor), rectangle);
+            }
+        }
+
+
+
         [Browsable(true)]
         [Category("自定义属性")]
         [Description("权限登记")]
