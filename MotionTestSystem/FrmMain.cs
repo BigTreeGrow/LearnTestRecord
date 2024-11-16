@@ -104,9 +104,16 @@ namespace MotionTestSystem
         private void OpenWindow(FromName fromName)
         {
             bool isfind = false;
-            foreach (var item in this.Mainpanel.Controls)
+            int total = this.Mainpanel.Controls.Count;
+            int CloseCount = 0;
+
+
+
+
+            for (int i= 0;i< total; i++)
             {
-                if (item is Form form)
+                Control ct = this.Mainpanel.Controls[i - CloseCount];
+                if (ct is Form form)
                 {    ///此窗体为需要窗体
                     if (form.Text == fromName.ToString())
                     {
@@ -114,7 +121,7 @@ namespace MotionTestSystem
                         isfind = true;
 
                     }
-                    else if (isFixedForm(fromName))
+                    else if (isFixedForm(form.Text))
                     {
 
                         form.SendToBack();
@@ -122,6 +129,7 @@ namespace MotionTestSystem
                     else
                     {
                         form.Close();
+                        CloseCount = CloseCount + 1;
                     }
                 
                 }
@@ -173,7 +181,7 @@ namespace MotionTestSystem
         /// </summary>
         /// <param name="fromName"></param>
         /// <returns></returns>
-        private bool isFixedForm(FromName fromName)
+        private bool isFixedForm(string fromName)
         {
             var list = Enum.GetNames(typeof(FromName)).Where(c => (int)Enum.Parse(typeof(FromName), c, true) < 10).ToList();
             return list.Contains(fromName.ToString());
