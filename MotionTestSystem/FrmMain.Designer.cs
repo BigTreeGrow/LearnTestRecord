@@ -32,6 +32,13 @@ namespace MotionTestSystem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.naviButton7 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton6 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton5 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton4 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton3 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton2 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton1 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -42,8 +49,6 @@ namespace MotionTestSystem
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.naviButton2 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton1 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,6 +87,11 @@ namespace MotionTestSystem
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.panelTop.Controls.Add(this.naviButton7);
+            this.panelTop.Controls.Add(this.naviButton6);
+            this.panelTop.Controls.Add(this.naviButton5);
+            this.panelTop.Controls.Add(this.naviButton4);
+            this.panelTop.Controls.Add(this.naviButton3);
             this.panelTop.Controls.Add(this.naviButton2);
             this.panelTop.Controls.Add(this.naviButton1);
             this.panelTop.Controls.Add(this.label1);
@@ -91,6 +101,132 @@ namespace MotionTestSystem
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1200, 80);
             this.panelTop.TabIndex = 0;
+            // 
+            // naviButton7
+            // 
+            this.naviButton7.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton7.Activegap = 5;
+            this.naviButton7.Activeheight = 60;
+            this.naviButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton7.ColorDepth = -0.2F;
+            this.naviButton7.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton7.Isactive = true;
+            this.naviButton7.Location = new System.Drawing.Point(1074, 8);
+            this.naviButton7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton7.Name = "naviButton7";
+            this.naviButton7.NaviImage = global::MotionTestSystem.Properties.Resources.quit;
+            this.naviButton7.NaviName = "退出系统";
+            this.naviButton7.Role = 0;
+            this.naviButton7.Size = new System.Drawing.Size(95, 72);
+            this.naviButton7.TabIndex = 8;
+            // 
+            // naviButton6
+            // 
+            this.naviButton6.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton6.Activegap = 5;
+            this.naviButton6.Activeheight = 60;
+            this.naviButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton6.ColorDepth = -0.2F;
+            this.naviButton6.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton6.Isactive = true;
+            this.naviButton6.Location = new System.Drawing.Point(979, 8);
+            this.naviButton6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton6.Name = "naviButton6";
+            this.naviButton6.NaviImage = global::MotionTestSystem.Properties.Resources.param;
+            this.naviButton6.NaviName = "设置";
+            this.naviButton6.Role = 0;
+            this.naviButton6.Size = new System.Drawing.Size(95, 72);
+            this.naviButton6.TabIndex = 7;
+            // 
+            // naviButton5
+            // 
+            this.naviButton5.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton5.Activegap = 5;
+            this.naviButton5.Activeheight = 60;
+            this.naviButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton5.ColorDepth = -0.2F;
+            this.naviButton5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton5.Isactive = true;
+            this.naviButton5.Location = new System.Drawing.Point(789, 8);
+            this.naviButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton5.Name = "naviButton5";
+            this.naviButton5.NaviImage = global::MotionTestSystem.Properties.Resources.hisData;
+            this.naviButton5.NaviName = "历史记录";
+            this.naviButton5.Role = 0;
+            this.naviButton5.Size = new System.Drawing.Size(95, 72);
+            this.naviButton5.TabIndex = 6;
+            // 
+            // naviButton4
+            // 
+            this.naviButton4.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton4.Activegap = 5;
+            this.naviButton4.Activeheight = 60;
+            this.naviButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton4.ColorDepth = -0.2F;
+            this.naviButton4.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton4.Isactive = true;
+            this.naviButton4.Location = new System.Drawing.Point(694, 8);
+            this.naviButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton4.Name = "naviButton4";
+            this.naviButton4.NaviImage = global::MotionTestSystem.Properties.Resources.alarm;
+            this.naviButton4.NaviName = "报警记录";
+            this.naviButton4.Role = 0;
+            this.naviButton4.Size = new System.Drawing.Size(95, 72);
+            this.naviButton4.TabIndex = 5;
+            // 
+            // naviButton3
+            // 
+            this.naviButton3.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton3.Activegap = 5;
+            this.naviButton3.Activeheight = 60;
+            this.naviButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton3.ColorDepth = -0.2F;
+            this.naviButton3.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton3.Isactive = true;
+            this.naviButton3.Location = new System.Drawing.Point(599, 8);
+            this.naviButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton3.Name = "naviButton3";
+            this.naviButton3.NaviImage = global::MotionTestSystem.Properties.Resources.man;
+            this.naviButton3.NaviName = "手动操作";
+            this.naviButton3.Role = 0;
+            this.naviButton3.Size = new System.Drawing.Size(95, 72);
+            this.naviButton3.TabIndex = 4;
+            // 
+            // naviButton2
+            // 
+            this.naviButton2.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton2.Activegap = 5;
+            this.naviButton2.Activeheight = 60;
+            this.naviButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton2.ColorDepth = -0.2F;
+            this.naviButton2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton2.Isactive = true;
+            this.naviButton2.Location = new System.Drawing.Point(884, 8);
+            this.naviButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton2.Name = "naviButton2";
+            this.naviButton2.NaviImage = global::MotionTestSystem.Properties.Resources.userMng;
+            this.naviButton2.NaviName = "用户管理";
+            this.naviButton2.Role = 0;
+            this.naviButton2.Size = new System.Drawing.Size(95, 72);
+            this.naviButton2.TabIndex = 3;
+            // 
+            // naviButton1
+            // 
+            this.naviButton1.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.naviButton1.Activegap = 5;
+            this.naviButton1.Activeheight = 60;
+            this.naviButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.naviButton1.ColorDepth = -0.2F;
+            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.naviButton1.Isactive = true;
+            this.naviButton1.Location = new System.Drawing.Point(504, 8);
+            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.naviButton1.Name = "naviButton1";
+            this.naviButton1.NaviImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.NaviImage")));
+            this.naviButton1.NaviName = "实时监控";
+            this.naviButton1.Role = 0;
+            this.naviButton1.Size = new System.Drawing.Size(95, 72);
+            this.naviButton1.TabIndex = 2;
             // 
             // label1
             // 
@@ -130,7 +266,7 @@ namespace MotionTestSystem
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Size = new System.Drawing.Size(1200, 687);
-            this.splitContainer2.SplitterDistance = 624;
+            this.splitContainer2.SplitterDistance = 633;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -139,7 +275,7 @@ namespace MotionTestSystem
             this.Mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Mainpanel.Location = new System.Drawing.Point(0, 0);
             this.Mainpanel.Name = "Mainpanel";
-            this.Mainpanel.Size = new System.Drawing.Size(1200, 624);
+            this.Mainpanel.Size = new System.Drawing.Size(1200, 633);
             this.Mainpanel.TabIndex = 0;
             this.Mainpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
             this.Mainpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
@@ -155,7 +291,7 @@ namespace MotionTestSystem
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 62);
+            this.panel1.Size = new System.Drawing.Size(1200, 53);
             this.panel1.TabIndex = 1;
             // 
             // labelDataTime
@@ -208,42 +344,6 @@ namespace MotionTestSystem
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // naviButton2
-            // 
-            this.naviButton2.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.naviButton2.Activegap = 0;
-            this.naviButton2.Activeheight = 4;
-            this.naviButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.naviButton2.ColorDepth = -0.2F;
-            this.naviButton2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton2.Isactive = false;
-            this.naviButton2.Location = new System.Drawing.Point(1101, 1);
-            this.naviButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton2.Name = "naviButton2";
-            this.naviButton2.NaviImage = global::MotionTestSystem.Properties.Resources.param;
-            this.naviButton2.NaviName = "设置";
-            this.naviButton2.Role = 0;
-            this.naviButton2.Size = new System.Drawing.Size(95, 72);
-            this.naviButton2.TabIndex = 3;
-            // 
-            // naviButton1
-            // 
-            this.naviButton1.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.naviButton1.Activegap = 5;
-            this.naviButton1.Activeheight = 60;
-            this.naviButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.naviButton1.ColorDepth = -0.2F;
-            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton1.Isactive = true;
-            this.naviButton1.Location = new System.Drawing.Point(763, 8);
-            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton1.Name = "naviButton1";
-            this.naviButton1.NaviImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.NaviImage")));
-            this.naviButton1.NaviName = "实时监控";
-            this.naviButton1.Role = 0;
-            this.naviButton1.Size = new System.Drawing.Size(95, 72);
-            this.naviButton1.TabIndex = 2;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -293,5 +393,10 @@ namespace MotionTestSystem
         private System.Windows.Forms.PictureBox pictureBox2;
         private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton2;
         private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton1;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton6;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton5;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton4;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton3;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton7;
     }
 }
