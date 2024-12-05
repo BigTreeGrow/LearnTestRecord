@@ -39,6 +39,8 @@ namespace MotionTestSystem
             InitializeComponent();
             NaviButtonBind();
             NaviButtonInit();
+            Program.motion.LoadParam();
+
         }
         /// <summary>
         /// 导航按钮事件绑定
@@ -208,5 +210,9 @@ namespace MotionTestSystem
 
         #endregion
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

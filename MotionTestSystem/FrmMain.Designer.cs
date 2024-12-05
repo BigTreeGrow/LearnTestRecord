@@ -32,13 +32,6 @@ namespace MotionTestSystem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.naviButton7 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton6 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton5 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton4 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton3 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton2 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton1 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -49,6 +42,13 @@ namespace MotionTestSystem
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.naviButton7 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton6 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton5 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton4 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton3 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton2 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.naviButton1 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -101,6 +101,123 @@ namespace MotionTestSystem
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1200, 80);
             this.panelTop.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(161, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(239, 36);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "运动控制测试系统";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MotionTestSystem.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(45, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(83, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.Mainpanel);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.panel1);
+            this.splitContainer2.Size = new System.Drawing.Size(1200, 687);
+            this.splitContainer2.SplitterDistance = 638;
+            this.splitContainer2.SplitterWidth = 1;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // Mainpanel
+            // 
+            this.Mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Mainpanel.Location = new System.Drawing.Point(0, 0);
+            this.Mainpanel.Name = "Mainpanel";
+            this.Mainpanel.Size = new System.Drawing.Size(1200, 638);
+            this.Mainpanel.TabIndex = 0;
+            this.Mainpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
+            this.Mainpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.panel1.Controls.Add(this.labelDataTime);
+            this.panel1.Controls.Add(this.labelSysState);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.labelUser);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1200, 48);
+            this.panel1.TabIndex = 1;
+            // 
+            // labelDataTime
+            // 
+            this.labelDataTime.AutoSize = true;
+            this.labelDataTime.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelDataTime.Location = new System.Drawing.Point(996, 20);
+            this.labelDataTime.Name = "labelDataTime";
+            this.labelDataTime.Size = new System.Drawing.Size(173, 25);
+            this.labelDataTime.TabIndex = 4;
+            this.labelDataTime.Text = "2024-11-11-10:00";
+            // 
+            // labelSysState
+            // 
+            this.labelSysState.AutoSize = true;
+            this.labelSysState.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelSysState.Location = new System.Drawing.Point(248, 14);
+            this.labelSysState.Name = "labelSysState";
+            this.labelSysState.Size = new System.Drawing.Size(88, 25);
+            this.labelSysState.TabIndex = 3;
+            this.labelSysState.Text = "系统状态";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::MotionTestSystem.Properties.Resources.connected;
+            this.pictureBox3.Location = new System.Drawing.Point(187, 11);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(55, 31);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelUser.Location = new System.Drawing.Point(94, 11);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(69, 25);
+            this.labelUser.TabIndex = 1;
+            this.labelUser.Text = "管理员";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::MotionTestSystem.Properties.Resources.user;
+            this.pictureBox2.Location = new System.Drawing.Point(34, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(54, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // naviButton7
             // 
@@ -227,122 +344,6 @@ namespace MotionTestSystem
             this.naviButton1.Role = 0;
             this.naviButton1.Size = new System.Drawing.Size(95, 72);
             this.naviButton1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(161, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 36);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "运动控制测试系统";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MotionTestSystem.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(83, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer2.IsSplitterFixed = true;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.Mainpanel);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.panel1);
-            this.splitContainer2.Size = new System.Drawing.Size(1200, 687);
-            this.splitContainer2.SplitterDistance = 633;
-            this.splitContainer2.SplitterWidth = 1;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // Mainpanel
-            // 
-            this.Mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Mainpanel.Location = new System.Drawing.Point(0, 0);
-            this.Mainpanel.Name = "Mainpanel";
-            this.Mainpanel.Size = new System.Drawing.Size(1200, 633);
-            this.Mainpanel.TabIndex = 0;
-            this.Mainpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
-            this.Mainpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.panel1.Controls.Add(this.labelDataTime);
-            this.panel1.Controls.Add(this.labelSysState);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.labelUser);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 53);
-            this.panel1.TabIndex = 1;
-            // 
-            // labelDataTime
-            // 
-            this.labelDataTime.AutoSize = true;
-            this.labelDataTime.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelDataTime.Location = new System.Drawing.Point(1000, 32);
-            this.labelDataTime.Name = "labelDataTime";
-            this.labelDataTime.Size = new System.Drawing.Size(173, 25);
-            this.labelDataTime.TabIndex = 4;
-            this.labelDataTime.Text = "2024-11-11-10:00";
-            // 
-            // labelSysState
-            // 
-            this.labelSysState.AutoSize = true;
-            this.labelSysState.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelSysState.Location = new System.Drawing.Point(281, 32);
-            this.labelSysState.Name = "labelSysState";
-            this.labelSysState.Size = new System.Drawing.Size(88, 25);
-            this.labelSysState.TabIndex = 3;
-            this.labelSysState.Text = "系统状态";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::MotionTestSystem.Properties.Resources.connected;
-            this.pictureBox3.Location = new System.Drawing.Point(216, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(59, 51);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // labelUser
-            // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelUser.Location = new System.Drawing.Point(94, 32);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(69, 25);
-            this.labelUser.TabIndex = 1;
-            this.labelUser.Text = "管理员";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::MotionTestSystem.Properties.Resources.user;
-            this.pictureBox2.Location = new System.Drawing.Point(29, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(59, 51);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // FrmMain
             // 

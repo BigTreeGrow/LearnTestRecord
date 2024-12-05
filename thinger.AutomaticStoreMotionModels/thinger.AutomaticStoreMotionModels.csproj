@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvanceParam.cs" />
+    <Compile Include="BasicParam.cs" />
+    <Compile Include="OperationResult.cs" />
     <Compile Include="SysAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

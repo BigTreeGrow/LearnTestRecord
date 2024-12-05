@@ -47,6 +47,7 @@ namespace MotionTestSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormHistory";
             this.Text = "历史记录";
             this.ResumeLayout(false);

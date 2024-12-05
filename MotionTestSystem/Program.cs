@@ -38,5 +38,7 @@ namespace MotionTestSystem
         }
         //创建全局用户对象
         public static SysAdmin sysAdmin;
+        public static Motion motion = new Motion();
+
     }
 }
