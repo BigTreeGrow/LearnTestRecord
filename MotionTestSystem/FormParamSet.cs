@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using thinger.AutomaticStoreMotionDAL;
 using thinger.AutomaticStoreMotionModels;
 
 namespace MotionTestSystem
@@ -127,7 +128,7 @@ namespace MotionTestSystem
             catch (Exception ex)
             {
 
-               
+                LogHelper.Info("通过属性名称获取值", ex);
                 return null;
             }
         }

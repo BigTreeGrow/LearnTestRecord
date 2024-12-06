@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeadPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HeadPanel.Designer.cs">
+      <DependentUpon>HeadPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="NaviButton.cs">
       <SubType>UserControl</SubType>
     </Compile>

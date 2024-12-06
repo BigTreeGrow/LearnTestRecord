@@ -39,6 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="SqlSugar, Version=5.0.2.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\SqlSugar.dll</HintPath>
@@ -68,6 +72,7 @@
   <ItemGroup>
     <Compile Include="iniConfigHelper.cs" />
     <Compile Include="JSONHelper.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="Motion.cs" />
     <Compile Include="SqlSugarHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +84,11 @@
       <Project>{c792fe29-41f8-4dec-8a61-fbe75af96539}</Project>
       <Name>thinger.AutomaticStoreMotionModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

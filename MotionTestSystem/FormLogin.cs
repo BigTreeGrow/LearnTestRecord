@@ -95,6 +95,7 @@ namespace MotionTestSystem
 
 
                     this.DialogResult = DialogResult.OK;
+                    LogHelper.Info("登录成功");
                 }
         }   }
 
