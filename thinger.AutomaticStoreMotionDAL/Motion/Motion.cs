@@ -936,6 +936,32 @@ namespace thinger.AutomaticStoreMotionDAL
 
         #endregion
 
+        #region 根据索引获取位
+        /// <summary>
+        /// 根据索引获取位
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns>位结果</returns>
+        public bool GetInput(short index)
+
+        {
+            int vaule=0;
+            EcatMotionBoard.GlinkIO_ReadInput(index,out vaule);
+            if (vaule == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true ;
+            }
+          
+
+        }
+        #endregion
+
+
+
 
     }
     #region 轴相关信息

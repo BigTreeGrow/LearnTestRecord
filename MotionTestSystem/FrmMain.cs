@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using thinger.AutomaticStoreMotionControlLib;
-
+using thinger.AutomaticStoreMotionDAL;
 namespace MotionTestSystem
 {
    ///所有窗体的枚举
@@ -39,9 +39,13 @@ namespace MotionTestSystem
             InitializeComponent();
             NaviButtonBind();
             NaviButtonInit();
-            Program.motion.LoadParam();
+             motionEx.LoadParam();
+           
 
         }
+        //创建单例模式对象
+        private GtsMotionEx motionEx = GtsMotionEx.GetInstance();
+
         /// <summary>
         /// 导航按钮事件绑定
         /// </summary>
@@ -51,7 +55,7 @@ namespace MotionTestSystem
             {
                 if (item is NaviButton navi)
                 {
-
+                    if(navi.NaviName  != "退出系统")
                     navi.ClientEvent += CommonNaviButton_ClickEvent;
                 }
             
@@ -162,9 +166,6 @@ namespace MotionTestSystem
                     case FromName.设置 :
                         frm = new FormParamSet();
                         break;
-                    case FromName.退出系统 :
-                     
-                        break;
 
                 }
                 frm.TopLevel = false;
@@ -213,6 +214,16 @@ namespace MotionTestSystem
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Navi_exit_ClientEvent(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = new FormConfirm("退出系统", "是否确定要退出当前系统？", "退出系统", "取消退出") { TopMost = true }.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
     }
 }

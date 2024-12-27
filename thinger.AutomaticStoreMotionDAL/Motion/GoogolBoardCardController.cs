@@ -1082,6 +1082,33 @@ namespace thinger.AutomaticStoreMotionDAL
             }
             AxisControl.IOFun.IO_ReadInput_2(slaveno, doIndex, out Value);
         }
+        public short GlinkIO_ReadInput( int doIndex, out int Value)
+        {
+            ushort slaveno =0;
+            short err = 0;
+            if (doIndex < 16)
+            {
+                slaveno = 0;
+            }
+            else if (doIndex < 32)
+            {
+                slaveno = 1;
+                doIndex = (short)(doIndex - 16);
+            }
+            else if (doIndex < 48)
+            {
+                slaveno = 2;
+                doIndex = (short)(doIndex - 32);
+            }
+            else if (doIndex < 64)
+            {
+                slaveno = 1;
+                doIndex = (short)(doIndex - 48);
+            }
+
+            err= AxisControl.IOFun.IO_ReadInput_2(slaveno, doIndex, out Value);
+            return err;
+        }
         #endregion
         #region Glink获取输出状态 int型输出
         public void IO_ReadOutput_2(ushort slaveno, int doIndex, out int Value)

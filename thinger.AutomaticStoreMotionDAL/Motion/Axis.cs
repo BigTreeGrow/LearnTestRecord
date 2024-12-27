@@ -679,10 +679,11 @@ namespace AxisControl
 
         }
 
-        public static void IO_ReadInput_2(ushort slaveno, int doIndex, out int Value)
+        public static short IO_ReadInput_2(ushort slaveno, int doIndex, out int Value)
         {
             // 确定字节和位的位置
             //doIndex = doIndex - 1;//偏移位从1开始
+            short err = 0;
             int byteIndex = doIndex / 8; // 每个字节包含8个位
             int bitIndex = doIndex % 8;  // 确定在字节中的位位置
             byte[] BUFF = new byte[2];
@@ -690,10 +691,12 @@ namespace AxisControl
             short rtn = 0;
             byte[] di0 = new byte[4];
 
-            GTN.glink.GT_GetGLinkDi((short)slaveno, 0, out di0[0], 2);
+            err= GTN.glink.GT_GetGLinkDi((short)slaveno, 0, out di0[0], 2);
 
             int isSet = (di0[byteIndex] & (1 << bitIndex)) != 0 ? 1 : 0;
             Value = isSet;
+
+            return err;
 
 
         }

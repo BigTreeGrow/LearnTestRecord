@@ -69,6 +69,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormConfirmSingle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfirmSingle.Designer.cs">
+      <DependentUpon>FormConfirmSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfirm.Designer.cs">
+      <DependentUpon>FormConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormConfirmSingle.resx">
+      <DependentUpon>FormConfirmSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfirm.resx">
+      <DependentUpon>FormConfirm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHand.resx">
       <DependentUpon>FormHand.cs</DependentUpon>
     </EmbeddedResource>

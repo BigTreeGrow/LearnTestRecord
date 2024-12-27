@@ -58,10 +58,13 @@ namespace MotionTestSystem
             }
 
             //读取配置文件
-            LoadParam(this.tabPage1, Program.motion.basicParam);
-            LoadParam(this.tabPage2, Program.motion.advanceParam);
+            LoadParam(this.tabPage1, motionEx.basicParam);
+            LoadParam(this.tabPage2, motionEx.advanceParam);
             
         }
+
+        //创建单例模式对象
+        private GtsMotionEx motionEx = GtsMotionEx.GetInstance();
         /// <summary>
         /// 
         /// </summary>
@@ -182,7 +185,7 @@ namespace MotionTestSystem
 
             if (sb.ToString().Length > 0)
             {
-                OperationResult result = paramType == "基础参数" ? Program.motion.SaveBasicParam() : Program.motion.SaveAdvaceParam();
+                OperationResult result = paramType == "基础参数" ? motionEx.SaveBasicParam() : motionEx.SaveAdvancedParam();
 
                 if (result.IsSuccess)
                 {
@@ -229,23 +232,23 @@ namespace MotionTestSystem
 
         private void btn_ModifyAdvanced_Click(object sender, EventArgs e)
         {
-            ModifyParam("高级参数", Program.motion.advanceParam);
+            ModifyParam("高级参数", motionEx.advanceParam);
         }
 
         private void btn_CancelAdvanced_Click(object sender, EventArgs e)
         {
       
-            LoadParam(this.tabPage2, Program.motion.advanceParam);
+            LoadParam(this.tabPage2, motionEx.advanceParam);
         }
 
         private void btn_ModifyBasic_Click(object sender, EventArgs e)
         {
-            ModifyParam("高级参数", Program.motion.basicParam);
+            ModifyParam("高级参数", motionEx.basicParam);
         }
 
         private void btn_CancelBasic_Click(object sender, EventArgs e)
         {
-            LoadParam(this.tabPage1, Program.motion.basicParam);
+            LoadParam(this.tabPage1, motionEx.basicParam);
         }
     }
 }

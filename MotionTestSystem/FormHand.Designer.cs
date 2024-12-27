@@ -30,10 +30,6 @@ namespace MotionTestSystem
         private void InitializeComponent()
         {
             this.headPanel1 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
-            this.headPanel2 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
-            this.headPanel3 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
-            this.headPanel4 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
-            this.headPanel5 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
             this.btn_HandMode = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
@@ -42,6 +38,7 @@ namespace MotionTestSystem
             this.btn_ClipClose = new System.Windows.Forms.Button();
             this.btn_ClipOpen = new System.Windows.Forms.Button();
             this.btn_AutoMode = new System.Windows.Forms.Button();
+            this.headPanel2 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
             this.button16 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -50,6 +47,7 @@ namespace MotionTestSystem
             this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.headPanel3 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
             this.btn_Home_X = new System.Windows.Forms.Button();
             this.btn_StandbyAxisX = new System.Windows.Forms.Button();
             this.btn_Zero_X = new System.Windows.Forms.Button();
@@ -58,6 +56,7 @@ namespace MotionTestSystem
             this.btn_JOGPosX = new System.Windows.Forms.Button();
             this.btn_JOGNegX = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
+            this.headPanel4 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
             this.btn_HomeY = new System.Windows.Forms.Button();
             this.btn_StandbyAxisY = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
@@ -66,6 +65,7 @@ namespace MotionTestSystem
             this.button29 = new System.Windows.Forms.Button();
             this.btn_JOGPosY = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
+            this.headPanel5 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
             this.btn_HomeZ = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
@@ -102,94 +102,6 @@ namespace MotionTestSystem
             this.headPanel1.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
             this.headPanel1.ThemeForeColor = System.Drawing.Color.White;
             this.headPanel1.TitleText = "系统控制";
-            // 
-            // headPanel2
-            // 
-            this.headPanel2.BorderColor = System.Drawing.Color.Gray;
-            this.headPanel2.Controls.Add(this.button16);
-            this.headPanel2.Controls.Add(this.button9);
-            this.headPanel2.Controls.Add(this.button15);
-            this.headPanel2.Controls.Add(this.button10);
-            this.headPanel2.Controls.Add(this.button14);
-            this.headPanel2.Controls.Add(this.button11);
-            this.headPanel2.Controls.Add(this.button13);
-            this.headPanel2.Controls.Add(this.button12);
-            this.headPanel2.HeadHeight = 40;
-            this.headPanel2.LinearGradientRate = 0.4F;
-            this.headPanel2.Location = new System.Drawing.Point(233, 1);
-            this.headPanel2.Name = "headPanel2";
-            this.headPanel2.Size = new System.Drawing.Size(215, 590);
-            this.headPanel2.TabIndex = 1;
-            this.headPanel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.headPanel2.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.headPanel2.ThemeForeColor = System.Drawing.Color.White;
-            this.headPanel2.TitleText = "系统控制";
-            // 
-            // headPanel3
-            // 
-            this.headPanel3.BorderColor = System.Drawing.Color.Gray;
-            this.headPanel3.Controls.Add(this.btn_Home_X);
-            this.headPanel3.Controls.Add(this.btn_StandbyAxisX);
-            this.headPanel3.Controls.Add(this.btn_Zero_X);
-            this.headPanel3.Controls.Add(this.button22);
-            this.headPanel3.Controls.Add(this.button18);
-            this.headPanel3.Controls.Add(this.btn_JOGPosX);
-            this.headPanel3.Controls.Add(this.btn_JOGNegX);
-            this.headPanel3.Controls.Add(this.button20);
-            this.headPanel3.HeadHeight = 40;
-            this.headPanel3.LinearGradientRate = 0.4F;
-            this.headPanel3.Location = new System.Drawing.Point(454, 1);
-            this.headPanel3.Name = "headPanel3";
-            this.headPanel3.Size = new System.Drawing.Size(215, 590);
-            this.headPanel3.TabIndex = 1;
-            this.headPanel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.headPanel3.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.headPanel3.ThemeForeColor = System.Drawing.Color.White;
-            this.headPanel3.TitleText = "系统控制";
-            // 
-            // headPanel4
-            // 
-            this.headPanel4.BorderColor = System.Drawing.Color.Gray;
-            this.headPanel4.Controls.Add(this.btn_HomeY);
-            this.headPanel4.Controls.Add(this.btn_StandbyAxisY);
-            this.headPanel4.Controls.Add(this.button25);
-            this.headPanel4.Controls.Add(this.btn_Zero_Y);
-            this.headPanel4.Controls.Add(this.btn_JOGNegY);
-            this.headPanel4.Controls.Add(this.button29);
-            this.headPanel4.Controls.Add(this.btn_JOGPosY);
-            this.headPanel4.Controls.Add(this.button28);
-            this.headPanel4.HeadHeight = 40;
-            this.headPanel4.LinearGradientRate = 0.4F;
-            this.headPanel4.Location = new System.Drawing.Point(675, 1);
-            this.headPanel4.Name = "headPanel4";
-            this.headPanel4.Size = new System.Drawing.Size(215, 590);
-            this.headPanel4.TabIndex = 1;
-            this.headPanel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.headPanel4.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.headPanel4.ThemeForeColor = System.Drawing.Color.White;
-            this.headPanel4.TitleText = "系统控制";
-            // 
-            // headPanel5
-            // 
-            this.headPanel5.BorderColor = System.Drawing.Color.Gray;
-            this.headPanel5.Controls.Add(this.btn_HomeZ);
-            this.headPanel5.Controls.Add(this.button39);
-            this.headPanel5.Controls.Add(this.button33);
-            this.headPanel5.Controls.Add(this.button38);
-            this.headPanel5.Controls.Add(this.btn_JOGPosZ);
-            this.headPanel5.Controls.Add(this.btn_Zero_Z);
-            this.headPanel5.Controls.Add(this.button35);
-            this.headPanel5.Controls.Add(this.btn_JOGNegZ);
-            this.headPanel5.HeadHeight = 40;
-            this.headPanel5.LinearGradientRate = 0.4F;
-            this.headPanel5.Location = new System.Drawing.Point(906, 1);
-            this.headPanel5.Name = "headPanel5";
-            this.headPanel5.Size = new System.Drawing.Size(215, 590);
-            this.headPanel5.TabIndex = 1;
-            this.headPanel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.headPanel5.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.headPanel5.ThemeForeColor = System.Drawing.Color.White;
-            this.headPanel5.TitleText = "系统控制";
             // 
             // btn_HandMode
             // 
@@ -300,6 +212,28 @@ namespace MotionTestSystem
             this.btn_AutoMode.Tag = "ModeState;1";
             this.btn_AutoMode.Text = "自动模式";
             this.btn_AutoMode.UseVisualStyleBackColor = true;
+            // 
+            // headPanel2
+            // 
+            this.headPanel2.BorderColor = System.Drawing.Color.Gray;
+            this.headPanel2.Controls.Add(this.button16);
+            this.headPanel2.Controls.Add(this.button9);
+            this.headPanel2.Controls.Add(this.button15);
+            this.headPanel2.Controls.Add(this.button10);
+            this.headPanel2.Controls.Add(this.button14);
+            this.headPanel2.Controls.Add(this.button11);
+            this.headPanel2.Controls.Add(this.button13);
+            this.headPanel2.Controls.Add(this.button12);
+            this.headPanel2.HeadHeight = 40;
+            this.headPanel2.LinearGradientRate = 0.4F;
+            this.headPanel2.Location = new System.Drawing.Point(233, 1);
+            this.headPanel2.Name = "headPanel2";
+            this.headPanel2.Size = new System.Drawing.Size(215, 590);
+            this.headPanel2.TabIndex = 1;
+            this.headPanel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.headPanel2.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.headPanel2.ThemeForeColor = System.Drawing.Color.White;
+            this.headPanel2.TitleText = "系统控制";
             // 
             // button16
             // 
@@ -413,6 +347,28 @@ namespace MotionTestSystem
             this.button12.Text = "上后门关";
             this.button12.UseVisualStyleBackColor = true;
             // 
+            // headPanel3
+            // 
+            this.headPanel3.BorderColor = System.Drawing.Color.Gray;
+            this.headPanel3.Controls.Add(this.btn_Home_X);
+            this.headPanel3.Controls.Add(this.btn_StandbyAxisX);
+            this.headPanel3.Controls.Add(this.btn_Zero_X);
+            this.headPanel3.Controls.Add(this.button22);
+            this.headPanel3.Controls.Add(this.button18);
+            this.headPanel3.Controls.Add(this.btn_JOGPosX);
+            this.headPanel3.Controls.Add(this.btn_JOGNegX);
+            this.headPanel3.Controls.Add(this.button20);
+            this.headPanel3.HeadHeight = 40;
+            this.headPanel3.LinearGradientRate = 0.4F;
+            this.headPanel3.Location = new System.Drawing.Point(454, 1);
+            this.headPanel3.Name = "headPanel3";
+            this.headPanel3.Size = new System.Drawing.Size(215, 590);
+            this.headPanel3.TabIndex = 1;
+            this.headPanel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.headPanel3.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.headPanel3.ThemeForeColor = System.Drawing.Color.White;
+            this.headPanel3.TitleText = "系统控制";
+            // 
             // btn_Home_X
             // 
             this.btn_Home_X.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
@@ -439,6 +395,8 @@ namespace MotionTestSystem
             this.btn_StandbyAxisX.Tag = "Standby_X";
             this.btn_StandbyAxisX.Text = "X轴到待机位";
             this.btn_StandbyAxisX.UseVisualStyleBackColor = true;
+            
+            
             // 
             // btn_Zero_X
             // 
@@ -520,6 +478,28 @@ namespace MotionTestSystem
             this.button20.Tag = "Recycle_X";
             this.button20.Text = "X轴到回收位";
             this.button20.UseVisualStyleBackColor = true;
+            // 
+            // headPanel4
+            // 
+            this.headPanel4.BorderColor = System.Drawing.Color.Gray;
+            this.headPanel4.Controls.Add(this.btn_HomeY);
+            this.headPanel4.Controls.Add(this.btn_StandbyAxisY);
+            this.headPanel4.Controls.Add(this.button25);
+            this.headPanel4.Controls.Add(this.btn_Zero_Y);
+            this.headPanel4.Controls.Add(this.btn_JOGNegY);
+            this.headPanel4.Controls.Add(this.button29);
+            this.headPanel4.Controls.Add(this.btn_JOGPosY);
+            this.headPanel4.Controls.Add(this.button28);
+            this.headPanel4.HeadHeight = 40;
+            this.headPanel4.LinearGradientRate = 0.4F;
+            this.headPanel4.Location = new System.Drawing.Point(675, 1);
+            this.headPanel4.Name = "headPanel4";
+            this.headPanel4.Size = new System.Drawing.Size(215, 590);
+            this.headPanel4.TabIndex = 1;
+            this.headPanel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.headPanel4.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.headPanel4.ThemeForeColor = System.Drawing.Color.White;
+            this.headPanel4.TitleText = "系统控制";
             // 
             // btn_HomeY
             // 
@@ -628,6 +608,28 @@ namespace MotionTestSystem
             this.button28.Tag = "Weight_Y";
             this.button28.Text = "Y轴到称量位";
             this.button28.UseVisualStyleBackColor = true;
+            // 
+            // headPanel5
+            // 
+            this.headPanel5.BorderColor = System.Drawing.Color.Gray;
+            this.headPanel5.Controls.Add(this.btn_HomeZ);
+            this.headPanel5.Controls.Add(this.button39);
+            this.headPanel5.Controls.Add(this.button33);
+            this.headPanel5.Controls.Add(this.button38);
+            this.headPanel5.Controls.Add(this.btn_JOGPosZ);
+            this.headPanel5.Controls.Add(this.btn_Zero_Z);
+            this.headPanel5.Controls.Add(this.button35);
+            this.headPanel5.Controls.Add(this.btn_JOGNegZ);
+            this.headPanel5.HeadHeight = 40;
+            this.headPanel5.LinearGradientRate = 0.4F;
+            this.headPanel5.Location = new System.Drawing.Point(906, 1);
+            this.headPanel5.Name = "headPanel5";
+            this.headPanel5.Size = new System.Drawing.Size(215, 590);
+            this.headPanel5.TabIndex = 1;
+            this.headPanel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.headPanel5.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.headPanel5.ThemeForeColor = System.Drawing.Color.White;
+            this.headPanel5.TitleText = "系统控制";
             // 
             // btn_HomeZ
             // 

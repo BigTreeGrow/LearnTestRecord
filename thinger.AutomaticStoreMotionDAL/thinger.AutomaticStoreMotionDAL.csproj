@@ -70,13 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Axis.cs" />
-    <Compile Include="GoogolBoardCardController.cs" />
-    <Compile Include="gts.cs" />
+    <Compile Include="GtsMotionEx.cs" />
+    <Compile Include="Motion\Axis.cs" />
+    <Compile Include="Motion\GoogolBoardCardController.cs" />
+    <Compile Include="Motion\gts.cs" />
     <Compile Include="iniConfigHelper.cs" />
     <Compile Include="JSONHelper.cs" />
     <Compile Include="LogHelper.cs" />
-    <Compile Include="Motion.cs" />
+    <Compile Include="Motion\Motion.cs" />
     <Compile Include="MotorPara.cs" />
     <Compile Include="SqlSugarHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
