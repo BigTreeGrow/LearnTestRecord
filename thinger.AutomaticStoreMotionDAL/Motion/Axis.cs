@@ -584,7 +584,19 @@ namespace AxisControl
         }
 
 
-        
+        public static void GetAxisTorque(short core, short axis, out short pTorque)
+        {
+
+            GTN.mc.GTN_GetEcatAxisAtlTorque(core, axis, out pTorque);
+        }
+
+        public static void GetAxisCurrent(short core, short axis, out short current)
+        {
+
+            GTN.mc.GTN_GetEcatAxisAtlCurrent(core, axis, out current);
+        }
+
+
 
     }
 
@@ -733,6 +745,19 @@ namespace AxisControl
 
             int isSet = (do0[byteIndex] & (1 << bitIndex)) != 0 ? 1 : 0;
             Value = isSet;
+
+
+        }
+
+        public static void IO_ReadOutput_2(ushort slaveno, out int Value)
+        {
+            
+            byte[] do0 = new byte[4];
+
+            GTN.glink.GT_GetGLinkDo((short)slaveno, 0, ref do0[0], 2);
+
+           
+            Value = (do0[1] << 8) | do0[0];
 
 
         }
@@ -1529,12 +1554,17 @@ namespace AxisControl
                 prm.synAccMax = synAccMax;
 
                 //最小匀速时间
-                prm.evenTime = 500;
+                prm.evenTime = 20;
 
                 //轴的对应关系
-                prm.profile1 = profile1;
-
-                prm.profile2 = profile2;
+                prm.profile1 = 0;
+                prm.profile2 = 1;
+                prm.profile3 = 2;
+                prm.profile4 = 0;
+                prm.profile5 = 0;
+                prm.profile6 = 0;
+                prm.profile7 = 0;
+                prm.profile8 = 0; 
 
                 //设置原点
                 prm.setOriginFlag = 1;
@@ -1716,7 +1746,7 @@ namespace AxisControl
         /// <param name="crd"></param>
         /// <param name="fifo"></param>
         /// <returns></returns>
-        public static bool StartCrdMove(short crd,short fifo)
+        public static bool StartCrdMove( )
         {
             short err;
             err =  GTN.mc.GTN_CrdStart(1, 1, 0);

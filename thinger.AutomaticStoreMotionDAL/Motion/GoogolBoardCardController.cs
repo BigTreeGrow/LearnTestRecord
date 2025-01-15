@@ -1124,6 +1124,14 @@ namespace thinger.AutomaticStoreMotionDAL
             }
             AxisControl.IOFun.IO_ReadOutput_2(slaveno, doIndex, out Value);
         }
+        public void IO_ReadOutput_2(ushort slaveno, out int Value)
+        {
+            
+            AxisControl.IOFun.IO_ReadOutput_2(slaveno, out Value);
+        }
+
+
+
         #endregion
 
         #region  设置轴误差带
@@ -1187,7 +1195,7 @@ namespace thinger.AutomaticStoreMotionDAL
             double v1 = 0;
             double vmax = 200*10000;
             double amax = 5000*10000;
-            double jmax = 2500*10000;
+            double jmax = 50000*10000;
             var (q, qd, time, numPoints) = AxisControl.AxisPvt.GenerateTrajectory(q0, q1, v0, v1, vmax, amax, jmax); //执行规划，并生成规划数组
 
             double[] S_pos = new double[numPoints];
@@ -1196,6 +1204,12 @@ namespace thinger.AutomaticStoreMotionDAL
             Array.Copy(q, S_pos, numPoints);
             Array.Copy(qd, S_vel, numPoints);
             Array.Copy(time, S_time, numPoints);
+            if (numPoints > 0)
+            {
+                S_pos[numPoints-1] = TargetPos * 10000;
+
+
+            }
             // 对 S_vel 的每个元素除以 1000  ,转换成ms单位
             for (int i = 0; i < numPoints; i++)
             {
@@ -1216,6 +1230,115 @@ namespace thinger.AutomaticStoreMotionDAL
         }
 
 
-        #endregion 
+        public void S_Movetion(EnumStageAxis axis, double TargetPos,double s_v,double s_a,double s_j)
+        {
+            double pPos;
+            uint clk;
+            int mask;
+            GTN.mc.GTN_GetEncPos(1, Convert.ToInt16(axis), out pPos, 1, out clk);//获取当前位置
+
+
+            double q0 = pPos;
+            double q1 = TargetPos * 10000/5;  //默认转换关系为1mm对应10000脉冲 丝杠导程为5
+            double v0 = 0;
+            double v1 = 0;
+           // double vmax = 200 * 10000;
+          //  double amax = 5000 * 10000;
+          //  double jmax = 2500 * 10000;
+
+            double vmax = s_v * 10000;
+            double amax = s_a * 10000;
+            double jmax = s_j * 10000;
+
+            var (q, qd, time, numPoints) = AxisControl.AxisPvt.GenerateTrajectory(q0, q1, v0, v1, vmax, amax, jmax); //执行规划，并生成规划数组
+
+            double[] S_pos = new double[numPoints];
+            double[] S_vel = new double[numPoints];
+            double[] S_time = new double[numPoints];
+            Array.Copy(q, S_pos, numPoints);
+            Array.Copy(qd, S_vel, numPoints);
+            Array.Copy(time, S_time, numPoints);
+            // 对 S_vel 的每个元素除以 1000  ,转换成ms单位
+            if (numPoints > 0)
+            {
+                S_pos[numPoints - 1] = q1;
+
+
+            }
+            for (int i = 0; i < numPoints; i++)
+            {
+                S_vel[i] /= 1000; // 除以 1000  
+            }
+
+            // 对 S_time 的每个元素乘以 1000   转化成毫秒单位
+            for (int i = 0; i < numPoints; i++)
+            {
+                S_time[i] *= 1000; // 乘以 1000  
+            }
+            GTN.mc.GTN_PrfPvt(1, Convert.ToInt16(axis));//设置此轴为PVT模式
+            GTN.mc.GTN_PvtTable(1, 1, numPoints, ref S_time[0], ref S_pos[0], ref S_vel[0]); //压入数据
+            GTN.mc.GTN_PvtTableSelect(1, Convert.ToInt16(axis), 1);
+            mask = 1 << (Convert.ToInt16(axis) - 1);
+            GTN.mc.GTN_PvtStart(1, mask);
+
+        }
+
+
+
+        #endregion
+
+
+        #region  XY的直线插补
+
+
+        public  bool Set2DCoordinate(double synVelMax, double synAccMax, short profile1, short profile2, int originPos1, int originPos2)
+        {
+
+           return   AxisControl.Interpolation.Set2DCoordinate(synVelMax, synAccMax, profile1, profile2, originPos1, originPos2, out short error);
+
+        }
+
+        public  bool ClearCrdFifo(short core, short crd, short fifonum)
+        {
+
+            return AxisControl.Interpolation.ClearCrdFifo( core,  crd,  fifonum);
+
+
+
+        }
+        public  bool LnXYDataWrite(short crd, Int32 x, Int32 y, double synVel, double synAcc)
+        {
+
+            return AxisControl.Interpolation.LnXYDataWrite( crd,  x,  y,  synVel,  synAcc);
+        }
+
+
+
+
+        public  void GetCrdSpace(short crd, out Int32 pSpace)
+
+        {
+             AxisControl.Interpolation.GetCrdSpace( crd, out   pSpace);
+
+
+        }
+
+
+        public  bool StartCrdMove()
+
+        {
+           return  AxisControl.Interpolation.StartCrdMove();
+
+
+        }
+
+
+        public  void GetCrdStatus(short crd, out short sts, out int Finsh)
+        {
+            AxisControl.Interpolation.GetCrdStatus( crd, out  sts, out  Finsh);
+
+        }
+
+        #endregion
     }
 }

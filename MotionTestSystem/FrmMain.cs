@@ -40,12 +40,38 @@ namespace MotionTestSystem
             NaviButtonBind();
             NaviButtonInit();
              motionEx.LoadParam();
+            this.Load += FrmMain_Load;
            
 
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            //打开默认的窗体：实时监控
+            CommonNaviButton_ClickEvent(this.NaviMonitor, null);
+            var result = motionEx.InitCard();
+            if (!result.IsSuccess)
+            {
+                AddLog(1, "板卡初始化失败：" + result.ErrorMsg);
+                return;
+            }
+            else
+            {
+                AddLog(0, "板卡初始化成功");
+            }
+        }
+
         //创建单例模式对象
         private GtsMotionEx motionEx = GtsMotionEx.GetInstance();
 
+        #region 变量对象
+        //添加日志委托
+        private Action<int, string> AddLog;
+
+        //添加报警委托
+        private Action<string, bool> AddAlarm;
+
+        #endregion 
         /// <summary>
         /// 导航按钮事件绑定
         /// </summary>
@@ -150,6 +176,9 @@ namespace MotionTestSystem
                 {
                     case FromName.实时监控:
                         frm = new FormMonitor();
+                        this.AddLog = ((FormMonitor)frm).AddLog;
+                        this.AddAlarm = ((FormMonitor)frm).AddAlarm;
+
                         break;
                     case FromName.历史记录 :
                         frm = new FormHistory ();
@@ -222,8 +251,17 @@ namespace MotionTestSystem
 
             if (dialogResult == DialogResult.OK)
             {
+                motionEx.CloseCard();
                 Application.Exit();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+
+
+
         }
     }
 }

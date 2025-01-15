@@ -29,7 +29,7 @@ namespace thinger.AutomaticStoreMotionDAL
         public BasicParam basicParam = new BasicParam();
 
         public AdvanceParam advanceParam = new AdvanceParam();
-        GoogolBoardCardController EcatMotionBoard = new GoogolBoardCardController();//实例化板卡
+      public  GoogolBoardCardController EcatMotionBoard = new GoogolBoardCardController();//实例化板卡
         /// <summary>
         /// 配置文件路径
         /// </summary>
@@ -94,6 +94,22 @@ namespace thinger.AutomaticStoreMotionDAL
 
                 //json转换成对象
                 advanceParam = JSONHelper.JSONToEntity<AdvanceParam>(jsonadvanced);
+                MotorPara.AxisMotionPara[advanceParam.Axis_X].EactID = advanceParam.Axis_X;
+                MotorPara.AxisMotionPara[advanceParam.Axis_X].AXISModule.lead = advanceParam.Lead_X;
+                MotorPara.AxisMotionPara[advanceParam.Axis_X].DynamicsParaIn.circlePulse = (int)advanceParam.Scale_X;
+
+                MotorPara.AxisMotionPara[advanceParam.Axis_Y].EactID = advanceParam.Axis_Y;
+                MotorPara.AxisMotionPara[advanceParam.Axis_Y].AXISModule.lead = advanceParam.Lead_Y;
+                MotorPara.AxisMotionPara[advanceParam.Axis_Y].DynamicsParaIn.circlePulse = (int)advanceParam.Scale_Y;
+
+                MotorPara.AxisMotionPara[advanceParam.Axis_Z].EactID = advanceParam.Axis_Z;
+                MotorPara.AxisMotionPara[advanceParam.Axis_Z].AXISModule.lead = advanceParam.Lead_Z;
+                MotorPara.AxisMotionPara[advanceParam.Axis_Z].DynamicsParaIn.circlePulse = (int)advanceParam.Scale_Z;
+
+
+
+
+
 
 
 
@@ -368,7 +384,7 @@ namespace thinger.AutomaticStoreMotionDAL
         /// <param name="vel">速度</param>
         /// <param name="acc">加减速度</param>
         /// <returns>操作结果</returns>
-        public OperationResult JogMove(short axis, double vel = 10, double acc = 0.0125)
+        public OperationResult JogMove(short axis, double vel = 10, double acc = 10)
         {
 
             //通用运行初始化验证
@@ -936,7 +952,7 @@ namespace thinger.AutomaticStoreMotionDAL
 
         #endregion
 
-        #region 根据索引获取位
+        #region 根据索引获输入取位
         /// <summary>
         /// 根据索引获取位
         /// </summary>
@@ -958,8 +974,97 @@ namespace thinger.AutomaticStoreMotionDAL
           
 
         }
+        #endregion      
+        #region 获取输出
+        /// <summary>
+        /// 获取输出
+        /// </summary>
+        /// <returns>输出结果</returns>
+        public short GetOutput()
+        {
+            //是否初始化
+            OperationResult result = CommonInitedValidate();
+
+            if (!result.IsSuccess) return 0;
+
+            short error = 0;
+
+            int res;
+            try
+            {
+                EcatMotionBoard.IO_ReadOutput_2(0,out res);
+                ErrorHandler("GT_GetDo", error);
+                return (short)~res;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        /// <summary>
+        /// 根据索引获取位
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns>位结果</returns>
+        public bool GetOutput(short index)
+        {
+            short status = GetOutput();
+
+            //32
+
+            if ((status & Convert.ToInt32(Math.Pow(2, index - 1))) != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         #endregion
 
+        #region 根据索引操作输出位
+
+        /// <summary>
+        /// 根据索引操作位
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="open">操作位</param>
+        /// <returns>操作结果</returns>
+        public OperationResult SetOutput(short index, bool open)
+        {
+            //是否初始化
+            OperationResult result = CommonInitedValidate();
+
+            if (!result.IsSuccess) return result;
+
+            short error = 0;
+            short res = 0;
+            try
+            {
+                if (open)
+                {
+                    res = 1;
+                }
+                else
+                {
+                    res = 0;
+                }
+                EcatMotionBoard.IO_WriteOutPut_2(0, index, res);
+
+                ErrorHandler("GT_SetDoBit", error);
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.ErrorMsg = ex.Message;
+                return result;
+            }
+            return OperationResult.CreateSuccessResult();
+        }
+
+        #endregion
 
 
 

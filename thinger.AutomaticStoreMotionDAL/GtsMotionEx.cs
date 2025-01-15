@@ -45,7 +45,7 @@ namespace thinger.AutomaticStoreMotionDAL
 
         #region  字段属性
 
-        private Motion motion = new Motion();
+      public    Motion motion = new Motion();
 
         public BasicParam basicParam
         {
@@ -61,6 +61,29 @@ namespace thinger.AutomaticStoreMotionDAL
         public bool initialOK
         {
             get { return motion.initedOK; }
+        }
+
+        /// <summary>
+        /// 系统手动模式还是自动模式
+        /// </summary>
+        public bool ModeState
+        {
+            get {
+                    if (advanceParam.ModeState == 0)
+                    {
+                      return true;
+                }
+                    else
+                    {
+                        return false;
+
+                    }
+                
+                  }
+            set
+            {
+                advanceParam.ModeState = (ModeState ? (short)0 : (short)1);
+            }
         }
         private bool isPause;
         /// <summary>
@@ -258,6 +281,13 @@ namespace thinger.AutomaticStoreMotionDAL
             return GetCmdPosX().ToString("f1") + ";" + GetCmdPosY().ToString("f1") + ";" + GetCmdPosZ().ToString("f1");
         }
 
+        public double GetCmdPos( short axis )
+        {
+            return motion.GetCmdPos(axis);
+        }
+
+
+
         #endregion
 
         #region 配置方法
@@ -292,6 +322,69 @@ namespace thinger.AutomaticStoreMotionDAL
         }
 
         #endregion
+        #region 获取输出
+        /// <summary>
+        /// 获取所有输出
+        /// </summary>
+        /// <returns></returns>
+        public short GetOutput()
+        {
+            return motion.GetOutput();
+        }
+
+        /// <summary>
+        /// 根据索引获取输出
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool GetOutput(short index)
+        {
+            return motion.GetOutput(index);
+        }
+
+        /// <summary>
+        /// 获取系统模式
+        /// </summary>
+        /// <returns></returns>
+        public bool GetModeState()
+        {
+            return GetOutput(advanceParam.ModeState);
+        }
+
+        /// <summary>
+        /// 获取阀门输出
+        /// </summary>
+        /// <returns></returns>
+        public bool GetClip()
+        {
+            return GetOutput(advanceParam.ClipCtrl);
+        }
+
+
+        /// <summary>
+        /// 获取存料状态输出
+        /// </summary>
+        /// <returns></returns>
+        public bool GetStoreState()
+        {
+            return GetOutput(advanceParam.StoreState);
+        }
+
+        /// <summary>
+        /// 获取取料状态输出
+        /// </summary>
+        /// <returns></returns>
+        public bool GetReclaimState()
+        {
+            return GetOutput(advanceParam.ReclaimState);
+        }
+
+
+
+
+        #endregion
+
+
 
     }
 }

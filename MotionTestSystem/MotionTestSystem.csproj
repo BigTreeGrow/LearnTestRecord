@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -39,6 +39,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="SeeSharpTools.JY.GUI, Version=1.4.4.533, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SeeSharpTools.JY.GUI.dll</HintPath>
     </Reference>
     <Reference Include="SqlSugar, Version=5.0.2.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -69,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAutoProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAutoProgram.Designer.cs">
+      <DependentUpon>FormAutoProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConfirmSingle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +102,12 @@
     </Compile>
     <Compile Include="FormHistory.Designer.cs">
       <DependentUpon>FormHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForminterCrd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForminterCrd.Designer.cs">
+      <DependentUpon>ForminterCrd.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -117,6 +133,18 @@
     <Compile Include="FormPrint.Designer.cs">
       <DependentUpon>FormPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPVTmotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPVTmotion.Designer.cs">
+      <DependentUpon>FormPVTmotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSupermotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSupermotion.Designer.cs">
+      <DependentUpon>FormSupermotion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSysLog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +165,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAutoProgram.resx">
+      <DependentUpon>FormAutoProgram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConfirmSingle.resx">
       <DependentUpon>FormConfirmSingle.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +180,9 @@
     <EmbeddedResource Include="FormHistory.resx">
       <DependentUpon>FormHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForminterCrd.resx">
+      <DependentUpon>ForminterCrd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormParamSet.resx">
       <DependentUpon>FormParamSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPVTmotion.resx">
+      <DependentUpon>FormPVTmotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSupermotion.resx">
+      <DependentUpon>FormSupermotion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSysLog.resx">
       <DependentUpon>FormSysLog.cs</DependentUpon>
@@ -193,20 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\image\三轴.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\thinger.AutomaticStoreMotionControlLib\thinger.AutomaticStoreMotionControlLib.csproj">
-      <Project>{95548EE1-5A7F-4FFA-B6AC-86DCB56AE8E2}</Project>
-      <Name>thinger.AutomaticStoreMotionControlLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\thinger.AutomaticStoreMotionDAL\thinger.AutomaticStoreMotionDAL.csproj">
-      <Project>{f18af297-c172-4fe0-ae4e-2e052128faba}</Project>
-      <Name>thinger.AutomaticStoreMotionDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\thinger.AutomaticStoreMotionModels\thinger.AutomaticStoreMotionModels.csproj">
-      <Project>{c792fe29-41f8-4dec-8a61-fbe75af96539}</Project>
-      <Name>thinger.AutomaticStoreMotionModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\image\alarm.png" />
@@ -270,6 +296,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\image\userMng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\thinger.AutomaticStoreMotionControlLib\thinger.AutomaticStoreMotionControlLib.csproj">
+      <Project>{95548ee1-5a7f-4ffa-b6ac-86dcb56ae8e2}</Project>
+      <Name>thinger.AutomaticStoreMotionControlLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\thinger.AutomaticStoreMotionDAL\thinger.AutomaticStoreMotionDAL.csproj">
+      <Project>{f18af297-c172-4fe0-ae4e-2e052128faba}</Project>
+      <Name>thinger.AutomaticStoreMotionDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\thinger.AutomaticStoreMotionModels\thinger.AutomaticStoreMotionModels.csproj">
+      <Project>{c792fe29-41f8-4dec-8a61-fbe75af96539}</Project>
+      <Name>thinger.AutomaticStoreMotionModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

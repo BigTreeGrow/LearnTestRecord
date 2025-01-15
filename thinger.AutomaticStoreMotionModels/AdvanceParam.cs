@@ -88,24 +88,37 @@ namespace thinger.AutomaticStoreMotionModels
         //脉冲当量
 
         //X轴缩放系数 
-        public double Scale_X { get; set; } = 4000;
+        public double Scale_X { get; set; } = 10000;
 
         //Y轴缩放系数 
-        public double Scale_Y { get; set; } = 4000;
+        public double Scale_Y { get; set; } = 10000;
 
         //Z轴缩放系数 
-        public double Scale_Z { get; set; } = 4000;
+        public double Scale_Z { get; set; } = 10000;
+
+        //丝杠导程
+        //X轴缩放系数 
+        public double Lead_X { get; set; } = 5;
+
+        //Y轴缩放系数 
+        public double Lead_Y { get; set; } = 5;
+
+        //Z轴缩放系数 
+        public double Lead_Z { get; set; } = 5;
+
+
+
 
         //加速度
 
         //X轴运动加速度
-        public double Acc_X { get; set; } = 0.01;
+        public double Acc_X { get; set; } = 10;
 
         //Y轴运动加速度
-        public double Acc_Y { get; set; } = 0.01;
+        public double Acc_Y { get; set; } = 10;
 
         //Z轴运动加速度
-        public double Acc_Z { get; set; } = 0.01;
+        public double Acc_Z { get; set; } = 10;
 
 
         //复位方向

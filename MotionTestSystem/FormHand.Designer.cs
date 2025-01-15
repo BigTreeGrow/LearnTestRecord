@@ -35,8 +35,8 @@ namespace MotionTestSystem
             this.btn_Home = new System.Windows.Forms.Button();
             this.btn_LightOff = new System.Windows.Forms.Button();
             this.btn_LightOn = new System.Windows.Forms.Button();
-            this.btn_ClipClose = new System.Windows.Forms.Button();
-            this.btn_ClipOpen = new System.Windows.Forms.Button();
+            this.btn_SinglePVT = new System.Windows.Forms.Button();
+            this.btn_SingleAxis = new System.Windows.Forms.Button();
             this.btn_AutoMode = new System.Windows.Forms.Button();
             this.headPanel2 = new thinger.AutomaticStoreMotionControlLib.HeadPanel();
             this.button16 = new System.Windows.Forms.Button();
@@ -89,8 +89,8 @@ namespace MotionTestSystem
             this.headPanel1.Controls.Add(this.btn_Home);
             this.headPanel1.Controls.Add(this.btn_LightOff);
             this.headPanel1.Controls.Add(this.btn_LightOn);
-            this.headPanel1.Controls.Add(this.btn_ClipClose);
-            this.headPanel1.Controls.Add(this.btn_ClipOpen);
+            this.headPanel1.Controls.Add(this.btn_SinglePVT);
+            this.headPanel1.Controls.Add(this.btn_SingleAxis);
             this.headPanel1.Controls.Add(this.btn_AutoMode);
             this.headPanel1.HeadHeight = 40;
             this.headPanel1.LinearGradientRate = 0.4F;
@@ -153,9 +153,10 @@ namespace MotionTestSystem
             this.btn_LightOff.Name = "btn_LightOff";
             this.btn_LightOff.Size = new System.Drawing.Size(123, 43);
             this.btn_LightOff.TabIndex = 12;
-            this.btn_LightOff.Tag = "LightCtrl;0";
-            this.btn_LightOff.Text = "照明关闭";
+            this.btn_LightOff.Tag = "";
+            this.btn_LightOff.Text = "三轴自动流程测试";
             this.btn_LightOff.UseVisualStyleBackColor = true;
+            this.btn_LightOff.Click += new System.EventHandler(this.btn_LightOff_Click);
             // 
             // btn_LightOn
             // 
@@ -167,37 +168,40 @@ namespace MotionTestSystem
             this.btn_LightOn.Name = "btn_LightOn";
             this.btn_LightOn.Size = new System.Drawing.Size(123, 43);
             this.btn_LightOn.TabIndex = 13;
-            this.btn_LightOn.Tag = "LightCtrl;1";
-            this.btn_LightOn.Text = "照明打开";
+            this.btn_LightOn.Tag = "";
+            this.btn_LightOn.Text = "双轴直线插补测试";
             this.btn_LightOn.UseVisualStyleBackColor = true;
+            this.btn_LightOn.Click += new System.EventHandler(this.btn_LightOn_Click);
             // 
-            // btn_ClipClose
+            // btn_SinglePVT
             // 
-            this.btn_ClipClose.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_ClipClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.btn_ClipClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.btn_ClipClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ClipClose.Location = new System.Drawing.Point(46, 241);
-            this.btn_ClipClose.Name = "btn_ClipClose";
-            this.btn_ClipClose.Size = new System.Drawing.Size(123, 43);
-            this.btn_ClipClose.TabIndex = 14;
-            this.btn_ClipClose.Tag = "ClipCtrl;0";
-            this.btn_ClipClose.Text = "夹爪关闭";
-            this.btn_ClipClose.UseVisualStyleBackColor = true;
+            this.btn_SinglePVT.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btn_SinglePVT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btn_SinglePVT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btn_SinglePVT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SinglePVT.Location = new System.Drawing.Point(46, 241);
+            this.btn_SinglePVT.Name = "btn_SinglePVT";
+            this.btn_SinglePVT.Size = new System.Drawing.Size(123, 43);
+            this.btn_SinglePVT.TabIndex = 14;
+            this.btn_SinglePVT.Tag = "";
+            this.btn_SinglePVT.Text = "单轴运动规划调试";
+            this.btn_SinglePVT.UseVisualStyleBackColor = true;
+            this.btn_SinglePVT.Click += new System.EventHandler(this.btn_SinglePVT_Click);
             // 
-            // btn_ClipOpen
+            // btn_SingleAxis
             // 
-            this.btn_ClipOpen.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btn_ClipOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.btn_ClipOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.btn_ClipOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ClipOpen.Location = new System.Drawing.Point(46, 177);
-            this.btn_ClipOpen.Name = "btn_ClipOpen";
-            this.btn_ClipOpen.Size = new System.Drawing.Size(123, 43);
-            this.btn_ClipOpen.TabIndex = 15;
-            this.btn_ClipOpen.Tag = "ClipCtrl;1";
-            this.btn_ClipOpen.Text = "夹爪打开";
-            this.btn_ClipOpen.UseVisualStyleBackColor = true;
+            this.btn_SingleAxis.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btn_SingleAxis.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btn_SingleAxis.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btn_SingleAxis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SingleAxis.Location = new System.Drawing.Point(46, 177);
+            this.btn_SingleAxis.Name = "btn_SingleAxis";
+            this.btn_SingleAxis.Size = new System.Drawing.Size(123, 43);
+            this.btn_SingleAxis.TabIndex = 15;
+            this.btn_SingleAxis.Tag = "";
+            this.btn_SingleAxis.Text = "单轴基本调试";
+            this.btn_SingleAxis.UseVisualStyleBackColor = true;
+            this.btn_SingleAxis.Click += new System.EventHandler(this.btn_SingleAxis_Click);
             // 
             // btn_AutoMode
             // 
@@ -395,8 +399,6 @@ namespace MotionTestSystem
             this.btn_StandbyAxisX.Tag = "Standby_X";
             this.btn_StandbyAxisX.Text = "X轴到待机位";
             this.btn_StandbyAxisX.UseVisualStyleBackColor = true;
-            
-            
             // 
             // btn_Zero_X
             // 
@@ -451,6 +453,8 @@ namespace MotionTestSystem
             this.btn_JOGPosX.TabIndex = 15;
             this.btn_JOGPosX.Text = "X轴JOG+";
             this.btn_JOGPosX.UseVisualStyleBackColor = true;
+            this.btn_JOGPosX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseDown);
+            this.btn_JOGPosX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseUp);
             // 
             // btn_JOGNegX
             // 
@@ -464,6 +468,8 @@ namespace MotionTestSystem
             this.btn_JOGNegX.TabIndex = 16;
             this.btn_JOGNegX.Text = "X轴JOG-";
             this.btn_JOGNegX.UseVisualStyleBackColor = true;
+            this.btn_JOGNegX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseDown);
+            this.btn_JOGNegX.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseUp);
             // 
             // button20
             // 
@@ -567,6 +573,8 @@ namespace MotionTestSystem
             this.btn_JOGNegY.TabIndex = 14;
             this.btn_JOGNegY.Text = "Y轴JOG-";
             this.btn_JOGNegY.UseVisualStyleBackColor = true;
+            this.btn_JOGNegY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseDown);
+            this.btn_JOGNegY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseUp);
             // 
             // button29
             // 
@@ -594,6 +602,8 @@ namespace MotionTestSystem
             this.btn_JOGPosY.TabIndex = 16;
             this.btn_JOGPosY.Text = "Y轴JOG+";
             this.btn_JOGPosY.UseVisualStyleBackColor = true;
+            this.btn_JOGPosY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseDown);
+            this.btn_JOGPosY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseUp);
             // 
             // button28
             // 
@@ -698,6 +708,8 @@ namespace MotionTestSystem
             this.btn_JOGPosZ.TabIndex = 14;
             this.btn_JOGPosZ.Text = "Z轴JOG+";
             this.btn_JOGPosZ.UseVisualStyleBackColor = true;
+            this.btn_JOGPosZ.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseDown);
+            this.btn_JOGPosZ.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseUp);
             // 
             // btn_Zero_Z
             // 
@@ -738,10 +750,12 @@ namespace MotionTestSystem
             this.btn_JOGNegZ.TabIndex = 17;
             this.btn_JOGNegZ.Text = "Z轴JOG-";
             this.btn_JOGNegZ.UseVisualStyleBackColor = true;
+            this.btn_JOGNegZ.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseDown);
+            this.btn_JOGNegZ.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_JOGPos_MouseUp);
             // 
             // FormHand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 603);
             this.Controls.Add(this.headPanel5);
@@ -774,8 +788,8 @@ namespace MotionTestSystem
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Button btn_LightOff;
         private System.Windows.Forms.Button btn_LightOn;
-        private System.Windows.Forms.Button btn_ClipClose;
-        private System.Windows.Forms.Button btn_ClipOpen;
+        private System.Windows.Forms.Button btn_SinglePVT;
+        private System.Windows.Forms.Button btn_SingleAxis;
         private System.Windows.Forms.Button btn_AutoMode;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button9;

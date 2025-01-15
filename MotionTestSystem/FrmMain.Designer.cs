@@ -38,7 +38,7 @@ namespace MotionTestSystem
             this.naviButton4 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             this.naviButton3 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             this.naviButton2 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
-            this.naviButton1 = new thinger.AutomaticStoreMotionControlLib.NaviButton();
+            this.NaviMonitor = new thinger.AutomaticStoreMotionControlLib.NaviButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -93,7 +93,7 @@ namespace MotionTestSystem
             this.panelTop.Controls.Add(this.naviButton4);
             this.panelTop.Controls.Add(this.naviButton3);
             this.panelTop.Controls.Add(this.naviButton2);
-            this.panelTop.Controls.Add(this.naviButton1);
+            this.panelTop.Controls.Add(this.NaviMonitor);
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Controls.Add(this.pictureBox1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -211,23 +211,23 @@ namespace MotionTestSystem
             this.naviButton2.Size = new System.Drawing.Size(95, 72);
             this.naviButton2.TabIndex = 3;
             // 
-            // naviButton1
+            // NaviMonitor
             // 
-            this.naviButton1.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.naviButton1.Activegap = 5;
-            this.naviButton1.Activeheight = 60;
-            this.naviButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
-            this.naviButton1.ColorDepth = -0.2F;
-            this.naviButton1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.naviButton1.Isactive = true;
-            this.naviButton1.Location = new System.Drawing.Point(504, 8);
-            this.naviButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.naviButton1.Name = "naviButton1";
-            this.naviButton1.NaviImage = ((System.Drawing.Image)(resources.GetObject("naviButton1.NaviImage")));
-            this.naviButton1.NaviName = "实时监控";
-            this.naviButton1.Role = 0;
-            this.naviButton1.Size = new System.Drawing.Size(95, 72);
-            this.naviButton1.TabIndex = 2;
+            this.NaviMonitor.Activcolor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.NaviMonitor.Activegap = 5;
+            this.NaviMonitor.Activeheight = 60;
+            this.NaviMonitor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(69)))), ((int)(((byte)(163)))));
+            this.NaviMonitor.ColorDepth = -0.2F;
+            this.NaviMonitor.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NaviMonitor.Isactive = true;
+            this.NaviMonitor.Location = new System.Drawing.Point(504, 8);
+            this.NaviMonitor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NaviMonitor.Name = "NaviMonitor";
+            this.NaviMonitor.NaviImage = ((System.Drawing.Image)(resources.GetObject("NaviMonitor.NaviImage")));
+            this.NaviMonitor.NaviName = "实时监控";
+            this.NaviMonitor.Role = 0;
+            this.NaviMonitor.Size = new System.Drawing.Size(95, 72);
+            this.NaviMonitor.TabIndex = 2;
             // 
             // label1
             // 
@@ -236,7 +236,7 @@ namespace MotionTestSystem
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(161, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 36);
+            this.label1.Size = new System.Drawing.Size(189, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "运动控制测试系统";
             // 
@@ -249,6 +249,7 @@ namespace MotionTestSystem
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // splitContainer2
             // 
@@ -267,7 +268,7 @@ namespace MotionTestSystem
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Size = new System.Drawing.Size(1200, 687);
-            this.splitContainer2.SplitterDistance = 641;
+            this.splitContainer2.SplitterDistance = 644;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -276,7 +277,7 @@ namespace MotionTestSystem
             this.Mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Mainpanel.Location = new System.Drawing.Point(0, 0);
             this.Mainpanel.Name = "Mainpanel";
-            this.Mainpanel.Size = new System.Drawing.Size(1200, 641);
+            this.Mainpanel.Size = new System.Drawing.Size(1200, 644);
             this.Mainpanel.TabIndex = 0;
             this.Mainpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
             this.Mainpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
@@ -292,7 +293,7 @@ namespace MotionTestSystem
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 45);
+            this.panel1.Size = new System.Drawing.Size(1200, 42);
             this.panel1.TabIndex = 1;
             // 
             // labelDataTime
@@ -301,7 +302,7 @@ namespace MotionTestSystem
             this.labelDataTime.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelDataTime.Location = new System.Drawing.Point(996, 20);
             this.labelDataTime.Name = "labelDataTime";
-            this.labelDataTime.Size = new System.Drawing.Size(173, 25);
+            this.labelDataTime.Size = new System.Drawing.Size(139, 20);
             this.labelDataTime.TabIndex = 4;
             this.labelDataTime.Text = "2024-11-11-10:00";
             // 
@@ -311,7 +312,7 @@ namespace MotionTestSystem
             this.labelSysState.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelSysState.Location = new System.Drawing.Point(248, 14);
             this.labelSysState.Name = "labelSysState";
-            this.labelSysState.Size = new System.Drawing.Size(88, 25);
+            this.labelSysState.Size = new System.Drawing.Size(69, 20);
             this.labelSysState.TabIndex = 3;
             this.labelSysState.Text = "系统状态";
             // 
@@ -332,7 +333,7 @@ namespace MotionTestSystem
             this.labelUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelUser.Location = new System.Drawing.Point(94, 11);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(69, 25);
+            this.labelUser.Size = new System.Drawing.Size(54, 20);
             this.labelUser.TabIndex = 1;
             this.labelUser.Text = "管理员";
             // 
@@ -348,7 +349,7 @@ namespace MotionTestSystem
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 768);
             this.Controls.Add(this.splitContainer1);
@@ -394,7 +395,7 @@ namespace MotionTestSystem
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.PictureBox pictureBox2;
         private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton2;
-        private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton1;
+        private thinger.AutomaticStoreMotionControlLib.NaviButton NaviMonitor;
         private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton6;
         private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton5;
         private thinger.AutomaticStoreMotionControlLib.NaviButton naviButton4;

@@ -53,7 +53,7 @@ namespace thinger.AutomaticStoreMotionDAL
             public DynamicsParaInput DynamicsParaIn;
             public AXISPARAMETER AXISModule;
         }
-        public static MotionParaGroup[] AxisMotionPara = new MotionParaGroup[13];
+        public static MotionParaGroup[] AxisMotionPara = new MotionParaGroup[32];
       
 
 

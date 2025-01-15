@@ -18,24 +18,27 @@ namespace MotionTestSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //链接数据库
-            SqlSugarService.SetConnectionString("Data Source=" + Application.StartupPath + "\\DataBase\\AutomaticStoreMotion;Pooling=true;FailIfMissing=false");
-            //打开登录界面并保持最前
-             FormLogin objFrm = new FormLogin() { TopMost = true };
+            /*   //链接数据库
+               SqlSugarService.SetConnectionString("Data Source=" + Application.StartupPath + "\\DataBase\\AutomaticStoreMotion;Pooling=true;FailIfMissing=false");
+               //打开登录界面并保持最前
+                FormLogin objFrm = new FormLogin() { TopMost = true };
 
-           
 
-            DialogResult dr = objFrm.ShowDialog();
 
-            if (dr == DialogResult.OK)
-            {
-                Application.Run(new FrmMain());
-            }
-            else
-            {
-                Application.Exit();
-            }
+               DialogResult dr = objFrm.ShowDialog();
+
+               if (dr == DialogResult.OK)
+               {
+                   Application.Run(new FrmMain());
+               }
+               else
+               {
+                   Application.Exit();
+               }
+           }*/
+            Application.Run(new FrmMain());
         }
+
         //创建全局用户对象
         public static SysAdmin sysAdmin;
      
