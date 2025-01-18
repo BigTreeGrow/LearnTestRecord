@@ -40,6 +40,7 @@ namespace MotionTestSystem
 
         private void FormAutoProgram_FormClosing(object sender, FormClosingEventArgs e)
         {
+            CurrrentMachineState = MachineState.Stopped;
             cts?.Cancel();
         }
 
@@ -58,15 +59,15 @@ namespace MotionTestSystem
             {
                 keyPostions[i] = new KeyPostion(); // 实例化每个 KeyPostion 对象  
             }
-
+            CurrrentMachineState = MachineState.Idle;
             //创建自动流程线程
             cts = new CancellationTokenSource();
 
             Task MainTask = new Task(MainProcess, cts.Token);
             //轴误差带创建
-            GTN.mc.GTN_SetAxisBand(CORE, 1, (int)5, (int)10);
-            GTN.mc.GTN_SetAxisBand(CORE, 2, (int)5, (int)10);
-            GTN.mc.GTN_SetAxisBand(CORE, 3, (int)5, (int)10);
+            GTN.mc.GTN_SetAxisBand(CORE, 1, (int)50, (int)100);
+            GTN.mc.GTN_SetAxisBand(CORE, 2, (int)50, (int)100);
+            GTN.mc.GTN_SetAxisBand(CORE, 3, (int)50, (int)100);
             GTN.mc.GTN_ClrSts(CORE, 1, 1);
             GTN.mc.GTN_ClrSts(CORE, 2, 1);
             GTN.mc.GTN_ClrSts(CORE, 3, 1);
@@ -137,7 +138,7 @@ namespace MotionTestSystem
             ChangeColor(ListLab, "label21", AxisControl.mc.AxisSts(AxisId, 9));//使能
             ChangeColor(ListLab, "label25", AxisControl.mc.AxisSts(AxisId, 10));//规划运动
             ChangeColor(ListLab, "label23", AxisControl.mc.AxisSts(AxisId, 11));//电机到位
-
+            DisplayProgram();
             //位置和速度更新
             keyPostions[0].Xaxis_pos = (double)numericUpXpos.Value;
             keyPostions[0].Yaxis_pos = (double)numericUpYpos.Value;
@@ -215,6 +216,16 @@ namespace MotionTestSystem
             keyPostions[3].Zaxis_Vel = keyPostions[0].Zaxis_Vel;
             keyPostions[3].Zaxis_Acc = keyPostions[0].Zaxis_Acc;
             keyPostions[3].Zaxis_J = keyPostions[0].Zaxis_J;
+            if (checkPVTEnable.Checked == true)
+            {
+                PVTEnable = true;
+
+            }
+            else
+            {
+                PVTEnable = false;
+
+            }
 
 
         }
@@ -237,6 +248,35 @@ namespace MotionTestSystem
                 }
             }
         }
+        private void DisplayProgram()
+        {
+
+            switch (CurrrentMachineState)
+            {
+                case MachineState.Start:
+                    textBox2.Text = "开始运行";
+                    break;
+                case MachineState.Producing:
+                    textBox2.Text = "正在循环";
+                    break;
+                case MachineState.Stopped:
+                    textBox2.Text = "急停";
+                    break;
+                case MachineState.End:
+                    textBox2.Text = "流程结束";
+                    break;
+                case MachineState.Idle:
+                    textBox2.Text = "空闲";
+                    break;
+                default:
+                    textBox2.Text = "未知";
+                    break;
+
+            }
+
+
+
+        }
 
         private void MainProcess()
         {
@@ -254,7 +294,22 @@ namespace MotionTestSystem
                         int i ;
                         for (i = 0; i < TotalCount; i++)
                         {
-                            SingleFlow();
+                            if (CurrrentMachineState != MachineState.Producing)
+                            {
+                                break;
+
+                            }
+                            if (PVTEnable)
+                            {
+                                PVTSingleFlow();
+
+                            }
+                            else
+                            {
+                                SingleFlow();
+
+                            }
+                           
                             CurrentCount += 1;
 
                         }
@@ -267,13 +322,13 @@ namespace MotionTestSystem
 
                         break;
                     case MachineState.Idle:
-                       
+                        Task.Delay(100);
                         break;
                     case MachineState.Paused:
                        
                         break;
                     case MachineState.Stopped:
-                        
+                        Task.Delay(100);
                         break;
                     case MachineState.End:
                         Task.Delay(100);
@@ -315,6 +370,14 @@ namespace MotionTestSystem
                     Waitdone = true;
 
                 }
+                if (CurrrentMachineState == MachineState.Stopped)
+                {
+                    motionEx.motion.EcatMotionBoard.StopMotion((EnumStageAxis)1);
+                    motionEx.motion.EcatMotionBoard.StopMotion((EnumStageAxis)2);
+                    motionEx.motion.EcatMotionBoard.StopMotion((EnumStageAxis)3);
+                    Waitdone = false;
+
+                }
 
                 Task.Delay(10);
             } while (Waitdone);
@@ -325,6 +388,52 @@ namespace MotionTestSystem
            
 
         }
+
+        //各轴执行定位 PVT模式
+        bool PVT_MultisAxisMove(KeyPostion keyPostion)
+        {
+            bool posdone1 = false;
+            bool posdone2 = false;
+            bool posdone3 = false;
+            bool Waitdone = true;
+           
+          //  motionEx.motion.EcatMotionBoard.S_Movetion((EnumStageAxis)1, keyPostion.Xaxis_pos, keyPostion.Xaxis_Vel, keyPostion.Xaxis_Acc, keyPostion.Xaxis_J);
+            motionEx.motion.EcatMotionBoard.S_Movetion((EnumStageAxis)2, keyPostion.Yaxis_pos, keyPostion.Yaxis_Vel, keyPostion.Yaxis_Acc, keyPostion.Yaxis_J);
+            motionEx.motion.EcatMotionBoard.S_Movetion((EnumStageAxis)3, keyPostion.Zaxis_pos, keyPostion.Zaxis_Vel, keyPostion.Zaxis_Acc, keyPostion.Zaxis_J);
+            do
+            {
+                posdone1 = AxisControl.mc.AxisSts(1, 11);
+                posdone1 = true;
+                posdone2 = AxisControl.mc.AxisSts(2, 11);
+                posdone3 = AxisControl.mc.AxisSts(3, 11);
+
+                if (posdone1 && posdone2 && posdone3)
+                {
+                    Waitdone = false;
+                }
+                else
+                {
+                    Waitdone = true;
+
+                }
+                if (CurrrentMachineState == MachineState.Stopped)
+                {
+                    motionEx.motion.EcatMotionBoard.StopMotion((EnumStageAxis)1);
+                    motionEx.motion.EcatMotionBoard.StopMotion((EnumStageAxis)2);
+                    motionEx.motion.EcatMotionBoard.StopMotion((EnumStageAxis)3);
+                    Waitdone = false;
+
+                }
+                Task.Delay(10);
+            } while (Waitdone);
+
+
+            return true;
+
+
+
+        }
+        //基础运动流程
 
         void SingleFlow()
         {
@@ -337,68 +446,149 @@ namespace MotionTestSystem
                 switch (flow)
                 {
                     case 0:
-                        keyposdone = Basic_MultisAxisMove(keyPostions[0]);
-                        flow = 1;
-                        singleflowfinish = false;
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = Basic_MultisAxisMove(keyPostions[0]);
+                            flow = 1;
+                            singleflowfinish = false;
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+
                         break;
                     case 1:
-                        if (keyposdone)
+                        if (CurrrentMachineState == MachineState.Producing)
                         {
-                            keyposdone = false;
-                            flow = 2;
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 2;
+                            }
+                            else
+                            {
+                                flow = flow;
+                            }
+
                         }
                         else
                         {
-                            flow = flow;
+                            flow = 8;
+
                         }
+
                         break;
                     case 2:
-                        keyposdone = Basic_MultisAxisMove(keyPostions[1]);
-                        flow = 3;
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = Basic_MultisAxisMove(keyPostions[1]);
+                            flow = 3;
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
                         break;
                     case 3:
-                        if (keyposdone)
+                        if (CurrrentMachineState == MachineState.Producing)
                         {
-                            keyposdone = false;
-                            flow = 4;
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 4;
+                            }
+                            else
+                            {
+
+                                flow = flow;
+                            }
+
                         }
                         else
                         {
+                            flow = 8;
 
-                            flow = flow;
                         }
+
                         break;
                     case 4:
-                        keyposdone = Basic_MultisAxisMove(keyPostions[2]);
-                        flow = 5;
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = Basic_MultisAxisMove(keyPostions[2]);
+                            flow = 5;
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
                         break;
                     case 5:
-                        if (keyposdone)
+                        if (CurrrentMachineState == MachineState.Producing)
                         {
-                            keyposdone = false;
-                            flow = 6;
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 6;
+                            }
+                            else
+                            {
+
+                                flow = flow;
+                            }
+
                         }
                         else
                         {
+                            flow = 8;
 
-                            flow = flow;
                         }
+
                         break;
                     case 6:
-                        keyposdone = Basic_MultisAxisMove(keyPostions[3]);
-                        flow = 7;
-                        break;
-                    case 7:
-                        if (keyposdone)
+                        if (CurrrentMachineState == MachineState.Producing)
                         {
-                            keyposdone = false;
-                            flow = 8;
+                            keyposdone = Basic_MultisAxisMove(keyPostions[3]);
+                            flow = 7;
+
                         }
                         else
                         {
+                            flow = 8;
 
-                            flow = flow;
                         }
+
+                        break;
+                    case 7:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 8;
+                            }
+                            else
+                            {
+
+                                flow = flow;
+                            }
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
                         break;
                     case 8:
                         flow = 0;
@@ -407,9 +597,177 @@ namespace MotionTestSystem
                         break;
 
                 }
-            
+
             }
-          
+
+        }
+
+        //PVT运动流程
+        void PVTSingleFlow()
+        {
+
+            bool keyposdone = false;
+            bool flowstart = true;
+            int flow = 0;
+            while (flowstart)
+            {
+                switch (flow)
+                {
+                    case 0:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = PVT_MultisAxisMove(keyPostions[0]);
+                            flow = 1;
+                            singleflowfinish = false;
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                       
+                        break;
+                    case 1:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 2;
+                            }
+                            else
+                            {
+                                flow = flow;
+                            }
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 2:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = PVT_MultisAxisMove(keyPostions[1]);
+                            flow = 3;
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 3:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 4;
+                            }
+                            else
+                            {
+
+                                flow = flow;
+                            }
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 4:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = PVT_MultisAxisMove(keyPostions[2]);
+                            flow = 5;
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 5:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 6;
+                            }
+                            else
+                            {
+
+                                flow = flow;
+                            }
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 6:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+                            keyposdone = PVT_MultisAxisMove(keyPostions[3]);
+                            flow = 7;
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 7:
+                        if (CurrrentMachineState == MachineState.Producing)
+                        {
+
+                            if (keyposdone)
+                            {
+                                keyposdone = false;
+                                flow = 8;
+                            }
+                            else
+                            {
+
+                                flow = flow;
+                            }
+
+                        }
+                        else
+                        {
+                            flow = 8;
+
+                        }
+
+                        break;
+                    case 8:
+                        flow = 0;
+                        flowstart = false;
+                        singleflowfinish = true;
+                        break;
+
+                }
+
+            }
+
         }
 
         /// <summary>
@@ -455,6 +813,16 @@ namespace MotionTestSystem
 
 
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CurrrentMachineState = MachineState.End;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CurrrentMachineState = MachineState.Stopped;
         }
     }
     public class KeyPostion

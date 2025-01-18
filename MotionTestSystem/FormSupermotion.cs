@@ -6,9 +6,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using thinger.AutomaticStoreMotionDAL;
+using Timer = System.Windows.Forms.Timer;
 
 namespace MotionTestSystem
 {
@@ -18,38 +20,57 @@ namespace MotionTestSystem
         {
  
             InitializeComponent();
-           /* ListLab = new List<Label>();
-            ListLab.Clear();
-            foreach (var cs in groupBox2.Controls)
-            {
-                if (cs.GetType() == typeof(Label))
-                {
-                    ListLab.Add((Label)cs);
-                }
-            }*/
+           
             this.Load += FormSupermotion_Load;
             //初始化定时器
             this.updateTimer.Interval = 200;
             this.updateTimer.Tick += UpdateTimer_Tick;
             this.updateTimer.Enabled = true;
             stopwatch = new Stopwatch();
+            this.FormClosing += FormSupermotion_FormClosing;
+        }
+
+        private void FormSupermotion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cts?.Cancel();
         }
 
         private void FormSupermotion_Load(object sender, EventArgs e)
         {
+          
             Form_MotionFlag_Load(sender ,e);
+            for (int i = 0; i < keyPostions.Length; i++)
+            {
+                keyPostions[i] = new KeyPostion(); // 实例化每个 KeyPostion 对象  
+            }
+            GTN.mc.GTN_SetAxisBand(CORE, 1, (int)50, (int)100);
+            GTN.mc.GTN_SetAxisBand(CORE, 2, (int)5, (int)10);
+            GTN.mc.GTN_SetAxisBand(CORE, 3, (int)5, (int)10);
+
+            //创建自动流程线程
+            cts = new CancellationTokenSource();
+
+            Task MainTask = new Task(MainProcess, cts.Token);
+       
+            MainTask.Start();
         }
 
         //创建一个更新定时器
         private Timer updateTimer = new Timer();
         //创建单例模式对象
         private GtsMotionEx motionEx = GtsMotionEx.GetInstance();
+        //创建取消线程源对象
+        private CancellationTokenSource cts;
         const short CORE = 1;
         short rtn;
         public static short MAxis;
         List<Label> ListLab = null;
         public Stopwatch stopwatch;
         public static double timecal;
+        public KeyPostion[] keyPostions = new KeyPostion[2];
+        public static MachineState CurrrentMachineState;
+        public static int CurrentCount;
+        public static int TotalCount;
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
             MAxis = (short)numMAxis.Value;
@@ -58,7 +79,8 @@ namespace MotionTestSystem
             int Sts;
             uint clk;
             short current,torque;
-
+            short rtn;
+            short AxisId = MAxis;
             EncPos = motionEx.GetCmdPos(MAxis);
             txtMEncPos.Text = ((double)EncPos).ToString();
             GTN.mc.GTN_GetSts(CORE, MAxis, out Sts, 1, out clk);
@@ -77,7 +99,6 @@ namespace MotionTestSystem
             textTore.Text = torque.ToString();
             textCurrent.Text = current.ToString();
 
-            short AxisId = MAxis;
             ChangeColor(ListLab, "label20", AxisControl.mc.AxisSts(AxisId, 1));//报警
             ChangeColor(ListLab, "label22", AxisControl.mc.AxisSts(AxisId, 5));//正限位
             ChangeColor(ListLab, "label30", AxisControl.mc.AxisSts(AxisId, 6));//负限位
@@ -86,15 +107,35 @@ namespace MotionTestSystem
             ChangeColor(ListLab, "label21", AxisControl.mc.AxisSts(AxisId, 9));//使能
             ChangeColor(ListLab, "label25", AxisControl.mc.AxisSts(AxisId, 10));//规划运动
             ChangeColor(ListLab, "label23", AxisControl.mc.AxisSts(AxisId, 11));//电机到位
+            GTN.mc.GTN_GetEcatAxisMode(CORE, MAxis, out mode);
             if (checkBox.Checked)
             {
-                GTN.mc.GTN_SetEcatAxisMode(CORE, MAxis, 10);
+              
+                if (mode != 10)
+                {
+                    rtn = GTN.mc.GTN_SetEcatAxisMode(CORE, MAxis, 10);
+                }
+               
+
+
             }
             else
             {
-                GTN.mc.GTN_SetEcatAxisMode(CORE, MAxis, 8);
-            }
 
+                if ((mode != 8) && (mode != 6))
+                {
+                    rtn = GTN.mc.GTN_SetEcatAxisMode(CORE, MAxis, 8);
+                }
+            }
+            keyPostions[0].Xaxis_pos = (double)numericStrartPos.Value;
+            keyPostions[0].Xaxis_Vel = (double)numericVel.Value;
+            keyPostions[0].Xaxis_Acc = (double)numericAcc.Value;
+
+            keyPostions[1].Xaxis_pos = (double)numericEndpos.Value;
+            keyPostions[1].Xaxis_Vel = (double)numericVel.Value;
+            keyPostions[1].Xaxis_Acc = (double)numericAcc.Value;
+            TotalCount = (int)WhileCount.Value;
+            finishcount.Text = ((int)CurrentCount).ToString();
 
         }
 
@@ -122,7 +163,17 @@ namespace MotionTestSystem
         private void btnStartHome_Click(object sender, EventArgs e)
         {
 
-            motionEx.motion.EcatMotionBoard.Home((EnumStageAxis)MAxis, (short)HomeMode.Value);
+
+            Task.Run(() =>
+            {
+
+
+                motionEx.motion.EcatMotionBoard.Home((EnumStageAxis)MAxis, (short)HomeMode.Value);
+
+
+            });
+
+          
 
         }
 
@@ -253,11 +304,163 @@ namespace MotionTestSystem
         private void buttonTore_Click(object sender, EventArgs e)
         {
             short T = (short)numTore.Value;
-          
-            GTN.mc.GTN_SetEcatAxisPT(CORE, MAxis, T);
+            short rtn;
+
+            rtn= GTN.mc.GTN_SetEcatAxisPT(CORE, MAxis, T);
             //Task.Delay(10);
            // GTN.mc.GTN_SetEcatAxisMode(CORE, MAxis, 8);
 
+
+        }
+
+        private void MainProcess()
+        {
+            while (!cts.IsCancellationRequested)
+            {
+                switch (CurrrentMachineState)
+                {
+                    case MachineState.Start:
+
+                        CurrrentMachineState = MachineState.Start;
+                        CurrentCount = 0;
+                        CurrrentMachineState = MachineState.Producing;
+                        break;
+                    case MachineState.Producing:
+                        int i;
+                        for (i = 0; i < TotalCount; i++)
+                        {
+                            SingleFlow();
+                            CurrentCount += 1;
+                            if (CurrrentMachineState != MachineState.Producing)
+                            {
+                                break;
+                            
+                            }
+
+                        }
+                        if (CurrentCount >= TotalCount)
+                        {
+
+
+                            CurrrentMachineState = MachineState.End;
+                        }
+
+                        break;
+                    case MachineState.Idle:
+
+                        break;
+                    case MachineState.Paused:
+
+                        break;
+                    case MachineState.Stopped:
+
+                        break;
+                    case MachineState.End:
+                        Task.Delay(100);
+                        break;
+                    default:
+
+                        break;
+                }
+
+            }
+
+
+        }
+
+
+        void SingleFlow()
+        {
+
+            bool keyposdone = false;
+            bool flowstart = true;
+            int flow = 0;
+            while (flowstart)
+            {
+                switch (flow)
+                {
+                    case 0:
+                        keyposdone = Basic_MultisAxisMove(keyPostions[0]);
+                        flow = 1;
+                       
+                        break;
+                    case 1:
+                        if (keyposdone)
+                        {
+                            keyposdone = false;
+                            flow = 2;
+                        }
+                        else
+                        {
+                            flow = flow;
+                        }
+                        break;
+                    case 2:
+                        keyposdone = Basic_MultisAxisMove(keyPostions[1]);
+                        flow = 3;
+                        break;
+                    case 3:
+                        if (keyposdone)
+                        {
+                            keyposdone = false;
+                            flow = 8;
+                        }
+                        else
+                        {
+
+                            flow = flow;
+                        }
+                        break;
+                   
+                    case 8:
+                        flow = 0;
+                        flowstart = false;
+                      
+                        break;
+
+                }
+
+            }
+
+        }
+
+        bool Basic_MultisAxisMove(KeyPostion keyPostion)
+        {
+            bool posdone1 = false;
+         
+            bool Waitdone = true;
+            
+            motionEx.motion.EcatMotionBoard.MoveAbsoluteSync((EnumStageAxis)MAxis, keyPostion.Xaxis_pos, keyPostion.Xaxis_Vel, keyPostion.Xaxis_Acc, out short err1);
+            do
+            {
+                posdone1 = AxisControl.mc.AxisSts(MAxis, 11);
+               
+
+                if (posdone1 )
+                {
+                    Waitdone = false;
+                }
+                else
+                {
+                    Waitdone = true;
+
+                }
+
+                Task.Delay(10);
+            } while (Waitdone);
+
+
+            return true;
+        }
+
+        private void StartWhile_Click(object sender, EventArgs e)
+        {
+            CurrrentMachineState = MachineState.Start;
+        }
+
+        private void EndWhile_Click(object sender, EventArgs e)
+        {
+            CurrrentMachineState = MachineState.End;
 
         }
     }

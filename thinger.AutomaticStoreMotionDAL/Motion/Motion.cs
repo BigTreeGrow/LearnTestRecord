@@ -261,6 +261,7 @@ namespace thinger.AutomaticStoreMotionDAL
 
             //定义运动控制指令的返回值
             short error;
+            short rtn;
             
 
             try
@@ -271,8 +272,9 @@ namespace thinger.AutomaticStoreMotionDAL
                 //清除轴标志
              
                 EcatMotionBoard.ALLAxisClrAlarm(advanceParam.AxisCount,out error);
-                // error = GTN.mc.GTN_ClrSts(1, 1, advanceParam.AxisCount);
-
+                rtn= GTN.mc.GTN_ClrSts(1, 1,1);
+                GTN.mc.GTN_ClrSts(1, 2, 1);
+                GTN.mc.GTN_ClrSts(1, 3, 1);
                 ErrorHandler("GT_ClrSts", error);
 
                 //使能驱动器

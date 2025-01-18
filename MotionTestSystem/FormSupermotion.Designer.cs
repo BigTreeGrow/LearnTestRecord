@@ -115,6 +115,21 @@ namespace MotionTestSystem
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonTore = new System.Windows.Forms.Button();
             this.checkBox = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.numericAcc = new System.Windows.Forms.NumericUpDown();
+            this.WhileCount = new System.Windows.Forms.NumericUpDown();
+            this.numericVel = new System.Windows.Forms.NumericUpDown();
+            this.numericEndpos = new System.Windows.Forms.NumericUpDown();
+            this.numericStrartPos = new System.Windows.Forms.NumericUpDown();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.finishcount = new System.Windows.Forms.TextBox();
+            this.StartWhile = new System.Windows.Forms.Button();
+            this.EndWhile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numMAxis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomeMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -130,6 +145,12 @@ namespace MotionTestSystem
             ((System.ComponentModel.ISupportInitialize)(this.numAcc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVel)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAcc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhileCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEndpos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStrartPos)).BeginInit();
             this.SuspendLayout();
             // 
             // label64
@@ -1194,7 +1215,7 @@ namespace MotionTestSystem
             // N
             // 
             this.N.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.N.Location = new System.Drawing.Point(917, 47);
+            this.N.Location = new System.Drawing.Point(935, 402);
             this.N.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.N.Name = "N";
             this.N.Size = new System.Drawing.Size(32, 20);
@@ -1205,7 +1226,7 @@ namespace MotionTestSystem
             // label43
             // 
             this.label43.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label43.Location = new System.Drawing.Point(784, 47);
+            this.label43.Location = new System.Drawing.Point(802, 402);
             this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(56, 20);
@@ -1217,7 +1238,7 @@ namespace MotionTestSystem
             // 
             this.textTore.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textTore.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textTore.Location = new System.Drawing.Point(845, 43);
+            this.textTore.Location = new System.Drawing.Point(863, 398);
             this.textTore.Name = "textTore";
             this.textTore.ReadOnly = true;
             this.textTore.Size = new System.Drawing.Size(71, 26);
@@ -1226,7 +1247,7 @@ namespace MotionTestSystem
             // label42
             // 
             this.label42.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label42.Location = new System.Drawing.Point(917, 92);
+            this.label42.Location = new System.Drawing.Point(935, 447);
             this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(32, 20);
@@ -1237,7 +1258,7 @@ namespace MotionTestSystem
             // label44
             // 
             this.label44.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label44.Location = new System.Drawing.Point(784, 92);
+            this.label44.Location = new System.Drawing.Point(802, 447);
             this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(56, 20);
@@ -1249,7 +1270,7 @@ namespace MotionTestSystem
             // 
             this.textCurrent.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textCurrent.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textCurrent.Location = new System.Drawing.Point(845, 88);
+            this.textCurrent.Location = new System.Drawing.Point(863, 443);
             this.textCurrent.Name = "textCurrent";
             this.textCurrent.ReadOnly = true;
             this.textCurrent.Size = new System.Drawing.Size(71, 26);
@@ -1311,11 +1332,258 @@ namespace MotionTestSystem
             this.checkBox.Text = "切换到转矩模式";
             this.checkBox.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(3, 3);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.EndWhile);
+            this.panel1.Controls.Add(this.StartWhile);
+            this.panel1.Controls.Add(this.label52);
+            this.panel1.Controls.Add(this.finishcount);
+            this.panel1.Controls.Add(this.numericAcc);
+            this.panel1.Controls.Add(this.WhileCount);
+            this.panel1.Controls.Add(this.numericVel);
+            this.panel1.Controls.Add(this.numericEndpos);
+            this.panel1.Controls.Add(this.numericStrartPos);
+            this.panel1.Controls.Add(this.label47);
+            this.panel1.Controls.Add(this.label48);
+            this.panel1.Controls.Add(this.label49);
+            this.panel1.Controls.Add(this.label50);
+            this.panel1.Controls.Add(this.label51);
+            this.panel1.Location = new System.Drawing.Point(785, 26);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(332, 336);
+            this.panel1.TabIndex = 153;
+            // 
+            // numericAcc
+            // 
+            this.numericAcc.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numericAcc.Location = new System.Drawing.Point(118, 200);
+            this.numericAcc.Margin = new System.Windows.Forms.Padding(2);
+            this.numericAcc.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numericAcc.Name = "numericAcc";
+            this.numericAcc.Size = new System.Drawing.Size(103, 28);
+            this.numericAcc.TabIndex = 28;
+            this.numericAcc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericAcc.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // WhileCount
+            // 
+            this.WhileCount.DecimalPlaces = 1;
+            this.WhileCount.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.WhileCount.Location = new System.Drawing.Point(118, 156);
+            this.WhileCount.Margin = new System.Windows.Forms.Padding(2);
+            this.WhileCount.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.WhileCount.Minimum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            -2147483648});
+            this.WhileCount.Name = "WhileCount";
+            this.WhileCount.Size = new System.Drawing.Size(103, 28);
+            this.WhileCount.TabIndex = 27;
+            this.WhileCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WhileCount.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // numericVel
+            // 
+            this.numericVel.DecimalPlaces = 1;
+            this.numericVel.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numericVel.Location = new System.Drawing.Point(118, 113);
+            this.numericVel.Margin = new System.Windows.Forms.Padding(2);
+            this.numericVel.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericVel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericVel.Name = "numericVel";
+            this.numericVel.Size = new System.Drawing.Size(103, 28);
+            this.numericVel.TabIndex = 26;
+            this.numericVel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericVel.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numericEndpos
+            // 
+            this.numericEndpos.DecimalPlaces = 1;
+            this.numericEndpos.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numericEndpos.Location = new System.Drawing.Point(118, 70);
+            this.numericEndpos.Margin = new System.Windows.Forms.Padding(2);
+            this.numericEndpos.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericEndpos.Minimum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            -2147483648});
+            this.numericEndpos.Name = "numericEndpos";
+            this.numericEndpos.Size = new System.Drawing.Size(103, 28);
+            this.numericEndpos.TabIndex = 25;
+            this.numericEndpos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericEndpos.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // numericStrartPos
+            // 
+            this.numericStrartPos.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numericStrartPos.Location = new System.Drawing.Point(118, 27);
+            this.numericStrartPos.Margin = new System.Windows.Forms.Padding(2);
+            this.numericStrartPos.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericStrartPos.Minimum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            -2147483648});
+            this.numericStrartPos.Name = "numericStrartPos";
+            this.numericStrartPos.Size = new System.Drawing.Size(103, 28);
+            this.numericStrartPos.TabIndex = 24;
+            this.numericStrartPos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericStrartPos.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label47
+            // 
+            this.label47.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label47.Location = new System.Drawing.Point(17, 202);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(90, 20);
+            this.label47.TabIndex = 23;
+            this.label47.Text = "加速度";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label48
+            // 
+            this.label48.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label48.Location = new System.Drawing.Point(17, 159);
+            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(90, 20);
+            this.label48.TabIndex = 22;
+            this.label48.Text = "循环次数";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label49
+            // 
+            this.label49.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label49.Location = new System.Drawing.Point(17, 116);
+            this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(90, 20);
+            this.label49.TabIndex = 21;
+            this.label49.Text = "运行速度";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label50
+            // 
+            this.label50.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label50.Location = new System.Drawing.Point(17, 73);
+            this.label50.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(90, 20);
+            this.label50.TabIndex = 20;
+            this.label50.Text = "终止位置";
+            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label51
+            // 
+            this.label51.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label51.Location = new System.Drawing.Point(17, 30);
+            this.label51.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(90, 20);
+            this.label51.TabIndex = 19;
+            this.label51.Text = "起始位置";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label52
+            // 
+            this.label52.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label52.Location = new System.Drawing.Point(14, 240);
+            this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(117, 20);
+            this.label52.TabIndex = 154;
+            this.label52.Text = "已完成次数";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // finishcount
+            // 
+            this.finishcount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.finishcount.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.finishcount.Location = new System.Drawing.Point(148, 239);
+            this.finishcount.Name = "finishcount";
+            this.finishcount.ReadOnly = true;
+            this.finishcount.Size = new System.Drawing.Size(110, 26);
+            this.finishcount.TabIndex = 155;
+            // 
+            // StartWhile
+            // 
+            this.StartWhile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StartWhile.Location = new System.Drawing.Point(25, 276);
+            this.StartWhile.Margin = new System.Windows.Forms.Padding(2);
+            this.StartWhile.Name = "StartWhile";
+            this.StartWhile.Size = new System.Drawing.Size(82, 45);
+            this.StartWhile.TabIndex = 154;
+            this.StartWhile.Text = "开始循环";
+            this.StartWhile.UseVisualStyleBackColor = true;
+            this.StartWhile.Click += new System.EventHandler(this.StartWhile_Click);
+            // 
+            // EndWhile
+            // 
+            this.EndWhile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EndWhile.Location = new System.Drawing.Point(150, 276);
+            this.EndWhile.Margin = new System.Windows.Forms.Padding(2);
+            this.EndWhile.Name = "EndWhile";
+            this.EndWhile.Size = new System.Drawing.Size(82, 45);
+            this.EndWhile.TabIndex = 156;
+            this.EndWhile.Text = "结束循环";
+            this.EndWhile.UseVisualStyleBackColor = true;
+            this.EndWhile.Click += new System.EventHandler(this.EndWhile_Click);
+            // 
             // FormSupermotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1129, 633);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.buttonTore);
             this.Controls.Add(this.label45);
@@ -1376,6 +1644,13 @@ namespace MotionTestSystem
             ((System.ComponentModel.ISupportInitialize)(this.numVel)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAcc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhileCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEndpos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStrartPos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1469,5 +1744,20 @@ namespace MotionTestSystem
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonTore;
         private System.Windows.Forms.CheckBox checkBox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button EndWhile;
+        private System.Windows.Forms.Button StartWhile;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox finishcount;
+        private System.Windows.Forms.NumericUpDown numericAcc;
+        private System.Windows.Forms.NumericUpDown WhileCount;
+        private System.Windows.Forms.NumericUpDown numericVel;
+        private System.Windows.Forms.NumericUpDown numericEndpos;
+        private System.Windows.Forms.NumericUpDown numericStrartPos;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
     }
 }

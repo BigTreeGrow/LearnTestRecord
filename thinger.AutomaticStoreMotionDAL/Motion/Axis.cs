@@ -377,7 +377,7 @@ namespace AxisControl
                 {
 
 
-                    return false;
+                 //   return false;
                 }
 
             } while (HomeSts != 3);//成功

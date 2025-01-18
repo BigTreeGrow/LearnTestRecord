@@ -63,6 +63,10 @@ namespace MotionTestSystem
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numAcc3 = new System.Windows.Forms.NumericUpDown();
+            this.numVel3 = new System.Windows.Forms.NumericUpDown();
+            this.numAcc2 = new System.Windows.Forms.NumericUpDown();
+            this.numVel2 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.numAcc1 = new System.Windows.Forms.NumericUpDown();
@@ -120,14 +124,15 @@ namespace MotionTestSystem
             this.Totalcount = new System.Windows.Forms.NumericUpDown();
             this.label50 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.numAcc2 = new System.Windows.Forms.NumericUpDown();
-            this.numVel2 = new System.Windows.Forms.NumericUpDown();
-            this.numAcc3 = new System.Windows.Forms.NumericUpDown();
-            this.numVel3 = new System.Windows.Forms.NumericUpDown();
+            this.checkPVTEnable = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMAxis)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAcc3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAcc2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAcc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVel1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -150,10 +155,6 @@ namespace MotionTestSystem
             ((System.ComponentModel.ISupportInitialize)(this.numericUpYpos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpXpos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Totalcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAcc2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numVel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAcc3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numVel3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -589,6 +590,108 @@ namespace MotionTestSystem
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基础参数";
             // 
+            // numAcc3
+            // 
+            this.numAcc3.DecimalPlaces = 1;
+            this.numAcc3.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numAcc3.Location = new System.Drawing.Point(254, 83);
+            this.numAcc3.Margin = new System.Windows.Forms.Padding(2);
+            this.numAcc3.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numAcc3.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numAcc3.Name = "numAcc3";
+            this.numAcc3.Size = new System.Drawing.Size(69, 28);
+            this.numAcc3.TabIndex = 26;
+            this.numAcc3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAcc3.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numVel3
+            // 
+            this.numVel3.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numVel3.Location = new System.Drawing.Point(254, 40);
+            this.numVel3.Margin = new System.Windows.Forms.Padding(2);
+            this.numVel3.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numVel3.Minimum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            -2147483648});
+            this.numVel3.Name = "numVel3";
+            this.numVel3.Size = new System.Drawing.Size(69, 28);
+            this.numVel3.TabIndex = 25;
+            this.numVel3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numVel3.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numAcc2
+            // 
+            this.numAcc2.DecimalPlaces = 1;
+            this.numAcc2.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numAcc2.Location = new System.Drawing.Point(165, 82);
+            this.numAcc2.Margin = new System.Windows.Forms.Padding(2);
+            this.numAcc2.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numAcc2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numAcc2.Name = "numAcc2";
+            this.numAcc2.Size = new System.Drawing.Size(69, 28);
+            this.numAcc2.TabIndex = 24;
+            this.numAcc2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAcc2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numVel2
+            // 
+            this.numVel2.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.numVel2.Location = new System.Drawing.Point(165, 39);
+            this.numVel2.Margin = new System.Windows.Forms.Padding(2);
+            this.numVel2.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numVel2.Minimum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            -2147483648});
+            this.numVel2.Name = "numVel2";
+            this.numVel2.Size = new System.Drawing.Size(69, 28);
+            this.numVel2.TabIndex = 23;
+            this.numVel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numVel2.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -686,6 +789,7 @@ namespace MotionTestSystem
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkPVTEnable);
             this.groupBox3.Controls.Add(this.numJ);
             this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.button10);
@@ -1400,6 +1504,7 @@ namespace MotionTestSystem
             this.button3.TabIndex = 146;
             this.button3.Text = "急停";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -1409,6 +1514,7 @@ namespace MotionTestSystem
             this.button4.TabIndex = 147;
             this.button4.Text = "结束";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label46
             // 
@@ -1516,107 +1622,17 @@ namespace MotionTestSystem
             this.textBox2.Size = new System.Drawing.Size(102, 26);
             this.textBox2.TabIndex = 162;
             // 
-            // numAcc2
+            // checkPVTEnable
             // 
-            this.numAcc2.DecimalPlaces = 1;
-            this.numAcc2.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.numAcc2.Location = new System.Drawing.Point(165, 82);
-            this.numAcc2.Margin = new System.Windows.Forms.Padding(2);
-            this.numAcc2.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numAcc2.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numAcc2.Name = "numAcc2";
-            this.numAcc2.Size = new System.Drawing.Size(69, 28);
-            this.numAcc2.TabIndex = 24;
-            this.numAcc2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numAcc2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numVel2
-            // 
-            this.numVel2.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.numVel2.Location = new System.Drawing.Point(165, 39);
-            this.numVel2.Margin = new System.Windows.Forms.Padding(2);
-            this.numVel2.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numVel2.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.numVel2.Name = "numVel2";
-            this.numVel2.Size = new System.Drawing.Size(69, 28);
-            this.numVel2.TabIndex = 23;
-            this.numVel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numVel2.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // numAcc3
-            // 
-            this.numAcc3.DecimalPlaces = 1;
-            this.numAcc3.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.numAcc3.Location = new System.Drawing.Point(254, 83);
-            this.numAcc3.Margin = new System.Windows.Forms.Padding(2);
-            this.numAcc3.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numAcc3.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numAcc3.Name = "numAcc3";
-            this.numAcc3.Size = new System.Drawing.Size(69, 28);
-            this.numAcc3.TabIndex = 26;
-            this.numAcc3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numAcc3.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numVel3
-            // 
-            this.numVel3.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.numVel3.Location = new System.Drawing.Point(254, 40);
-            this.numVel3.Margin = new System.Windows.Forms.Padding(2);
-            this.numVel3.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numVel3.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.numVel3.Name = "numVel3";
-            this.numVel3.Size = new System.Drawing.Size(69, 28);
-            this.numVel3.TabIndex = 25;
-            this.numVel3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numVel3.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.checkPVTEnable.AutoSize = true;
+            this.checkPVTEnable.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkPVTEnable.Location = new System.Drawing.Point(26, 149);
+            this.checkPVTEnable.Margin = new System.Windows.Forms.Padding(2);
+            this.checkPVTEnable.Name = "checkPVTEnable";
+            this.checkPVTEnable.Size = new System.Drawing.Size(134, 23);
+            this.checkPVTEnable.TabIndex = 62;
+            this.checkPVTEnable.Text = "PVT功能启用";
+            this.checkPVTEnable.UseVisualStyleBackColor = true;
             // 
             // FormAutoProgram
             // 
@@ -1649,9 +1665,14 @@ namespace MotionTestSystem
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numAcc3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAcc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAcc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVel1)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numJ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num)).EndInit();
@@ -1671,10 +1692,6 @@ namespace MotionTestSystem
             ((System.ComponentModel.ISupportInitialize)(this.numericUpYpos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpXpos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Totalcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAcc2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numVel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAcc3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numVel3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1777,5 +1794,6 @@ namespace MotionTestSystem
         private System.Windows.Forms.NumericUpDown numVel3;
         private System.Windows.Forms.NumericUpDown numAcc2;
         private System.Windows.Forms.NumericUpDown numVel2;
+        private System.Windows.Forms.CheckBox checkPVTEnable;
     }
 }

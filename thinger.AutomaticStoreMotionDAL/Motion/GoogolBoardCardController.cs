@@ -534,6 +534,7 @@ namespace thinger.AutomaticStoreMotionDAL
             ClrAlarm(axis);
             int pos = 0;
             Done = AxisControl.mc.MC_Home((short)axis, homemode);
+ 
             if (!Done)
             {
                 return false;
@@ -1017,7 +1018,7 @@ namespace thinger.AutomaticStoreMotionDAL
         /// <param name="axis"></param>
         public void ALLAxisClrAlarm(short axiscount, out short  err)
         {
-            err = GTN.mc.GTN_ClrSts(CORE, 1, axiscount);
+            err = GTN.mc.GTN_ClrSts(CORE, axiscount, 1);
         }
         #endregion
 
